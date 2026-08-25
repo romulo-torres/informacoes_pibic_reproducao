@@ -1,0 +1,334 @@
+\clearpage
+\appendix
+
+% ==============================================================================
+% Apêndice: Templates de Prompt Aplicados à Questão de Exemplo
+% Instância FOLIO id=49 (validação) — Coco Gauff / Roland Garros 2022
+% Rótulo original: True
+% ==============================================================================
+
+\section{Templates de Prompt Aplicados à Questão de Exemplo}
+\label{ap:templates-prompts}
+
+Este apêndice apresenta as nove configurações de prompt utilizadas no experimento,
+aplicados a uma mesma instância do conjunto de validação do FOLIO. A instância
+selecionada corresponde ao problema sobre tenistas no Roland Garros 2022 (id 49
+na partição de validação), cujo rótulo original é \textsc{True}. A utilização
+de uma instância comum permite comparar as instruções fornecidas ao modelo em
+cada condição sem alterar o conteúdo lógico fundamental do problema. Os prompts
+reproduzem literalmente as mensagens enviadas ao modelo durante as inferências,
+incluindo o texto de instrução, a ordem dos campos e os rótulos de saída
+permitidos. Nos prompts, as premissas em FOL foram normalizadas para ASCII
+conforme o pré-processamento adotado no experimento (por exemplo,
+$\forall$ foi substituído por \texttt{forall} e $\rightarrow$ por
+\texttt{->}). A apresentação introdutória da instância utiliza linguagem natural
+para facilitar a leitura, enquanto as listagens preservam a representação ASCII
+efetivamente enviada aos modelos.
+
+A instância de referência é composta pelas seguintes premissas e conclusão:
+
+\begin{quote}
+\textbf{Premissas (linguagem natural):}
+\begin{enumerate}
+  \item If a player is ranked highly by the Women's Tennis Association, then
+        they are among the most active players in major tennis.
+  \item Everyone who lost to Iga Świątek is ranked highly by the Women's
+        Tennis Association.
+  \item All female tennis players at Roland Garros 2022 lost to Iga Świątek.
+  \item Either female tennis players at Roland Garros 2022 or male tennis
+        players at Roland Garros 2022.
+  \item All male tennis players at Roland Garros 2022 lost to Rafael Nadal.
+  \item If Coco Gauff is a player who is ranked highly by the Women's Tennis
+        Association or a player who lost to Rafael Nadal, then Coco Gauff is
+        not a male tennis player at Roland Garros 2022.
+\end{enumerate}
+\textbf{Conclusão:} Coco Gauff is among the most active players in major
+tennis. \quad \textsc{[True]}
+\end{quote}
+
+% ------------------------------------------------------------------------------
+\subsection{1. Original}
+\label{ap:prompt-original}
+
+Premissas e conclusão apresentadas em lógica de primeira ordem (FOL),
+na ordem original do dataset. Rótulo esperado: \textsc{True}.
+
+\begin{lstlisting}[caption={Prompt -- condição Original.},
+                   label={lst:prompt-original}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- forall x (RankedHighly(x) -> MostActive(x))
+- forall x (LostToSwiatek(x) -> RankedHighly(x))
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- forall x (MalePlayers(x) -> LostToNadal(x))
+- (RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) -> NOT MalePlayers(cocoGauff)
+
+Conclusion:
+MostActive(cocoGauff)
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{2. Linguagem Natural}
+\label{ap:prompt-nl}
+
+Premissas e conclusão apresentadas em inglês, sem notação simbólica.
+Rótulo esperado: \textsc{True}.
+
+\begin{lstlisting}[caption={Prompt -- condição Linguagem Natural.},
+                   label={lst:prompt-nl}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- If a player is ranked highly by the Women's Tennis Association,
+  then they are among the most active players in major tennis.
+- Everyone who lost to Iga Swiatek is ranked highly by the Women's
+  Tennis Association.
+- All female tennis players at Roland Garros 2022 lost to Iga Swiatek.
+- Either female tennis players at Roland Garros 2022 or male tennis
+  players at Roland Garros 2022.
+- All male tennis players at Roland Garros 2022 lost to Rafael Nadal.
+- If Coco Gauff is a player who is ranked highly by the Women's Tennis
+  Association or a player who lost to Rafael Nadal, then Coco Gauff is
+  not a male tennis player at Roland Garros 2022.
+
+Conclusion:
+Coco Gauff is among the most active players in major tennis.
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{3. Premissas Embaralhadas}
+\label{ap:prompt-shuffled}
+
+A ordem das premissas foi aleatorizada com semente $42 + \text{id}$.
+O conteúdo lógico é idêntico ao da condição Original.
+Rótulo esperado: \textsc{True}.
+
+\begin{lstlisting}[caption={Prompt -- condição Premissas Embaralhadas.},
+                   label={lst:prompt-shuffled}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- (RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) -> NOT MalePlayers(cocoGauff)
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (LostToSwiatek(x) -> RankedHighly(x))
+- forall x (MalePlayers(x) -> LostToNadal(x))
+- forall x (RankedHighly(x) -> MostActive(x))
+
+Conclusion:
+MostActive(cocoGauff)
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{4. Premissas Juntas (AND)}
+\label{ap:prompt-junto}
+
+Todas as premissas são concatenadas por conjunção lógica em uma única
+sentença. Rótulo esperado: \textsc{True}.
+
+\begin{lstlisting}[caption={Prompt -- condição Premissas Juntas.},
+                   label={lst:prompt-junto}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+(forall x (RankedHighly(x) -> MostActive(x))) AND
+(forall x (LostToSwiatek(x) -> RankedHighly(x))) AND
+(forall x (FemalePlayers(x) -> LostToSwiatek(x))) AND
+(forall x (FemalePlayers(x) OR MalePlayers(x))) AND
+(forall x (MalePlayers(x) -> LostToNadal(x))) AND
+((RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) ->
+  NOT MalePlayers(cocoGauff))
+
+Conclusion:
+MostActive(cocoGauff)
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{5. Ruído Irrelevante}
+\label{ap:prompt-irrelevant}
+
+Uma premissa semanticamente correta mas logicamente irrelevante foi
+inserida e as premissas foram reembaralhadas (semente $42 + \text{id} + 1000$).
+A premissa inserida neste exemplo foi \texttt{MadeOf(moon, rock)}.
+Rótulo esperado: \textsc{True}.
+
+\begin{lstlisting}[caption={Prompt -- condição Ruído Irrelevante.},
+                   label={lst:prompt-irrelevant}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- forall x (MalePlayers(x) -> LostToNadal(x))
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- forall x (LostToSwiatek(x) -> RankedHighly(x))
+- (RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) -> NOT MalePlayers(cocoGauff)
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (RankedHighly(x) -> MostActive(x))
+- MadeOf(moon, rock)
+
+Conclusion:
+MostActive(cocoGauff)
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{6. Premissa Faltante}
+\label{ap:prompt-missing}
+
+A premissa de índice 4 foi removida --- neste exemplo,
+\texttt{forall x (MalePlayers(x) -> LostToNadal(x))} ---, identificada
+pelo provador Vampire como necessária para sustentar a conclusão.
+Sem ela, a inferência torna-se indeterminada.
+Rótulo esperado: \textsc{Uncertain}.
+
+\begin{lstlisting}[caption={Prompt -- condição Premissa Faltante.},
+                   label={lst:prompt-missing}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- forall x (RankedHighly(x) -> MostActive(x))
+- forall x (LostToSwiatek(x) -> RankedHighly(x))
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- (RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) -> NOT MalePlayers(cocoGauff)
+
+Conclusion:
+MostActive(cocoGauff)
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{7. Duplicação de Premissas}
+\label{ap:prompt-complex}
+
+Duas premissas existentes foram duplicadas e o conjunto resultante foi
+reembaralhado (semente $42 + \text{id} + 2000$), aumentando o tamanho do
+contexto sem alterar o conteúdo lógico.
+Rótulo esperado: \textsc{True}.
+
+\begin{lstlisting}[caption={Prompt -- condição Duplicação de Premissas.},
+                   label={lst:prompt-complex}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (MalePlayers(x) -> LostToNadal(x))
+- (RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) -> NOT MalePlayers(cocoGauff)
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (RankedHighly(x) -> MostActive(x))
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- forall x (LostToSwiatek(x) -> RankedHighly(x))
+
+Conclusion:
+MostActive(cocoGauff)
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{8. Contradição Injetada}
+\label{ap:prompt-contradiction}
+
+A negação de uma premissa existente foi inserida e o conjunto foi
+reembaralhado (semente $42 + \text{id} + 3000$). A premissa negada neste
+exemplo foi \texttt{forall x (LostToSwiatek(x) -> RankedHighly(x))},
+criando uma inconsistência explícita no conjunto de premissas. O critério
+de correção nesta condição é o reconhecimento da contradição pelo modelo,
+avaliado de forma assistida. Não há um rótulo final esperado nessa condição;
+considera-se correto o reconhecimento explícito da incompatibilidade no
+raciocínio, independentemente de a resposta final ser \textsc{True},
+\textsc{False} ou \textsc{Uncertain}.
+
+\begin{lstlisting}[caption={Prompt -- condição Contradição Injetada.},
+                   label={lst:prompt-contradiction}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- forall x (MalePlayers(x) -> LostToNadal(x))
+- forall x (LostToSwiatek(x) -> RankedHighly(x))
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- forall x (RankedHighly(x) -> MostActive(x))
+- (RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) -> NOT MalePlayers(cocoGauff)
+- NOT (forall x (LostToSwiatek(x) -> RankedHighly(x)))
+
+Conclusion:
+MostActive(cocoGauff)
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
+
+% ------------------------------------------------------------------------------
+\subsection{9. Negação da Conclusão}
+\label{ap:prompt-negation}
+
+A conclusão original foi substituída pela sua negação. As premissas
+permanecem inalteradas. Como a conclusão original é \textsc{True},
+verificar sua negação deve produzir \textsc{False}.
+Rótulo esperado: \textsc{False}.
+
+\begin{lstlisting}[caption={Prompt -- condição Negação da Conclusão.},
+                   label={lst:prompt-negation}]
+You are a logic expert.
+
+Given the following premises and a conclusion, determine whether
+the conclusion logically follows from the premises.
+
+Premises:
+- forall x (RankedHighly(x) -> MostActive(x))
+- forall x (LostToSwiatek(x) -> RankedHighly(x))
+- forall x (FemalePlayers(x) -> LostToSwiatek(x))
+- forall x (FemalePlayers(x) OR MalePlayers(x))
+- forall x (MalePlayers(x) -> LostToNadal(x))
+- (RankedHighly(cocoGauff) OR LostToNadal(cocoGauff)) -> NOT MalePlayers(cocoGauff)
+
+Conclusion:
+NOT (MostActive(cocoGauff))
+
+Please reason step by step. Then put your final answer within
+\boxed{True}, \boxed{False}, or \boxed{Uncertain}.
+\end{lstlisting}
