@@ -1,0 +1,22 @@
+# ==============================================================================
+# Inferência (scripts/inference.py)
+# ==============================================================================
+torch>=2.0.0
+transformers>=4.46.0
+datasets>=2.20.0
+accelerate>=0.30.0       # necessário para device_map="auto"
+flash-attn>=2.6.0        # requer CUDA; instalação: pip install flash-attn --no-build-isolation
+
+# ==============================================================================
+# Análise e tabela (analysis/gera_tabela_acuracia.py)
+# ==============================================================================
+pandas>=2.0.0
+scipy>=1.11.0
+tqdm>=4.66.0
+
+# ==============================================================================
+# Anotação das cadeias de raciocínio — scripts/anotacao/ (opcional)
+# Necessário apenas para reproduzir a etapa de anotação com a API OpenAI.
+# ==============================================================================
+openai>=1.0.0
+python-dotenv>=1.0.0
