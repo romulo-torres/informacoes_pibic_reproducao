@@ -1,0 +1,1002 @@
+dataset_idx,example_id,gold_label,status,base_label,relevant_found,new_label,premise_index,premise_text,n_premises
+0,1126,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (DrinkRegularly(x, coffee) → IsDependentOn(x, caffeine))",5
+1,1127,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+2,1128,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+3,1129,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+4,20,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+5,21,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+6,22,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"Czech(miroslav) ∧ ChoralConductor(miroslav) ∧ SpecializeInPerformanceOf(miroslav, renaissanceMusic) ∧ SpecializeInPerformanceOf(miroslav, baroqueMusic)",4
+7,1336,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+8,1337,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Eel(x) → Fish(x)),7
+9,1338,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Eel(x) → Fish(x)),7
+10,392,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+11,393,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+12,394,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+13,636,True,SKIP_NOT_CONVERGENT,False,False,,,,5
+14,637,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+15,638,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Attended(williamDickinson, westminsterSchool) ∧ Highschool(westminsterSchool) ∧ Attended(williamDickinson, universityOfEdinburgh)",5
+16,639,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"British(williamDickinson) ∧ Politician(williamDickinson) ∧ SatIn(williamDickinson, houseOfCommons)",5
+17,690,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+18,1192,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+19,1193,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+20,1194,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+21,1195,True,OK_RELEVANT_FOUND,True,True,Uncertain,3.0,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ Prefer(x, tVSeries)) → (¬WatchIn(x, tV, cinema)))",6
+22,1196,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x ((Customer(x) ∧ In(x, jameSFamily) ∧ SubscribedTo(x, aMCAList)) →  EligibleForThreeFreeMoviesEveryWeekWithoutAdditionalFees(x))",6
+23,550,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ∀y (LaLigaSoccerTeam(x) ∧ LaLigaSoccerTeam(y) ∧ MorePoints(x, y) → RankHigherThan(x, y))",5
+24,551,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+25,249,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))",4
+26,250,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (Residentof(x, lawtonPark) → UseZipCode(x, num98199))",4
+27,251,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+28,252,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+29,261,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x)),3
+30,262,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x ((Legislator(x) ∧ StealsFunds(x)) → Suspended(x)),3
+31,263,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+32,491,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+33,492,True,OK_RELEVANT_FOUND,True,True,Uncertain,3.0,"∀x (Sting(stonefish, x) ∧ ¬Treated(x) → CauseDeathTo(stonefish, x))",5
+34,493,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+35,1173,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+36,1174,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (Have(x, typeCPort) → ¬ProducedBefore(x, yr2010))",5
+37,1175,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x (Have(x, typeCPort) → ¬ProducedBefore(x, yr2010))",5
+38,1176,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+39,1177,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+40,1005,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+41,1006,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Outside(x, solarSystem) ⊕ In(x, solarSystem))",6
+42,1007,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+43,518,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+44,519,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+45,520,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+46,698,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+47,1385,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+48,1386,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+49,1387,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+50,1388,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+51,316,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,UnincorporatedCommunity(ordinary),3
+52,317,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,UnincorporatedCommunity(ordinary),3
+53,921,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+54,922,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (At(x, event) ∧ YoungAdult(x) → Like(x, independence))",7
+55,923,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (At(x, event) ∧ YoungAdult(x) → Like(x, independence))",7
+56,430,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+57,431,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Play(vicDicara, guitar) ∧ Play(vicDicara, bass)",3
+58,913,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+59,914,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (ProfessionalAthlete(x) → SpendOn(x, mostOfTheirTime, sports))",6
+60,915,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (ProfessionalAthlete(x) → SpendOn(x, mostOfTheirTime, sports))",6
+61,1142,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+62,1143,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ((GrownIn(x, benSYard) ∧ RedFruit(x)) → Contain(x, vitaminC))",6
+63,1144,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ((GrownIn(x, benSYard) ∧ RedFruit(x)) → Contain(x, vitaminC))",6
+64,1145,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+65,1146,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+66,1202,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+67,1203,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+68,1204,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (WorkAt(x, meta) → HighIncome(x))",6
+69,1205,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+70,1206,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+71,1207,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+72,1197,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+73,1198,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+74,708,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+75,1169,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+76,1170,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x ((StudentInTheClass(x) ∧ GoodAt(x, chemistry)) → Enjoy(x, conductingExperiment))",5
+77,1171,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+78,1172,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x ((StudentInTheClass(x) ∧ GoodAt(x, chemistry)) → Enjoy(x, conductingExperiment))",5
+79,69,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,∀x (Recommended(x) → Easy(x)),6
+80,70,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+81,71,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+82,687,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Rent(x, car) → Spend(x, money))",7
+83,1008,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+84,1009,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+85,1010,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+86,1068,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,5
+87,1069,True,SKIP_NOT_CONVERGENT,False,False,,,,5
+88,1070,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+89,1071,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ((Lipstick(x) ∧ In(x, rougeDiorSet) ∧ In(x, lunarNewYearLimitedEdition) ∧ VelvetFinish(x)) → Refillable(x))",5
+90,1072,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+91,1073,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+92,1074,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+93,1075,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+94,709,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+95,881,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Athlete(x) → ¬NeverExercises(x)) Never: does not exist a time,5
+96,882,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Athlete(x) → ¬NeverExercises(x)) Never: does not exist a time,5
+97,883,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+98,910,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+99,911,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+100,912,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+101,201,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"DirectedBy(afterTiller, lanaWilson) ∧ DirectedBy(theDeparture, lanaWilson) ∧ DirectedBy(missAmericana, lanaWilson)",8
+102,202,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"DirectedBy(afterTiller, lanaWilson) ∧ DirectedBy(theDeparture, lanaWilson) ∧ DirectedBy(missAmericana, lanaWilson)",8
+103,203,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+104,725,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ((Bear(x) ∧ In(x, zoo)) → ¬Wild(x))",2
+105,165,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,∀x (Leader(x) → (King(x) ⊕ Queen(x))),6
+106,166,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Leader(x) → HavePower(x)),6
+107,167,True,OK_RELEVANT_FOUND,True,True,Uncertain,5.0,Leader(elizabeth),6
+108,976,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+109,977,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+110,978,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+111,54,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+112,55,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"PlayedAs(thomasBarber, halfBack) ∧ PlayedAs(thomasBarber, insideLeft)",4
+113,56,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,English(thomasBarber) ∧ ProfessionalFootballer(thomasBarber),4
+114,464,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+115,465,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+116,466,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ∀y (PlayIn(y, x, concert) → GoodAtPlaying(y, x))",5
+117,1307,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+118,1308,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+119,1309,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+120,668,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+121,669,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+122,670,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+123,671,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+124,1402,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+125,1403,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+126,1404,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Biodegradable(x) → EnvironmentFriendly(x)),6
+127,1405,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Biodegradable(x) → EnvironmentFriendly(x)),6
+128,697,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Reptile(x) → ¬Have(x, fur))",2
+129,177,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (In(x, newHaven) → ¬High(x))",7
+130,178,False,OK_RELEVANT_FOUND,False,True,Uncertain,3.0,"∀x (Bloomberg(x) → In(x, manhattan))",7
+131,179,False,SKIP_NOT_CONVERGENT,True,False,,,,7
+132,1304,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+133,1305,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Bird(x) → ¬Ectothermic(x)),7
+134,1306,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,∀x (Penguin(x) → Bird(x)),7
+135,221,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,Prehistoric(ambiortus) ∧ BirdGenus(ambiortus),4
+136,222,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+137,223,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+138,224,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+139,1289,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+140,1290,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+141,1291,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+142,7,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Built(pierredeRigauddeVaudreuil, fortCarillon)",4
+143,8,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+144,9,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+145,840,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+146,841,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (ProfessionalSoccerPlayer(x) → ¬ProfessionalBasketballPlayer(x)),5
+147,842,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (ProfessionalSoccerPlayer(x) → ¬ProfessionalBasketballPlayer(x)),5
+148,1415,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Song(x) → ¬Visual(x)),7
+149,1416,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Song(x) → ¬Visual(x)),7
+150,1417,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Song(x) → ¬Visual(x)),7
+151,1418,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+152,1060,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+153,1061,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+154,1062,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+155,1133,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+156,1134,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+157,1135,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ((In(x, yaleSVarsityTeam) ∧ TrickShotArtist(x)) → ¬StruggleAt(x, halfCourtShot))",5
+158,1136,True,SKIP_NOT_CONVERGENT,False,False,,,,5
+159,1137,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+160,1138,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+161,1139,True,SKIP_NOT_CONVERGENT,False,False,,,,5
+162,1140,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x ((In(x, yaleSVarsityTeam) ∧ TrickShotArtist(x)) → ¬StruggleAt(x, halfCourtShot))",5
+163,1141,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+164,715,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Plant(x) → ¬Fungi(x)),2
+165,735,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+166,628,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+167,355,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+168,356,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+169,357,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Musician(x) → Have(x, busyLife))",4
+170,728,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+171,375,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+172,1372,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+173,1373,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+174,1374,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+175,1375,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+176,1376,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+177,1377,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+178,135,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+179,136,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+180,137,True,OK_RELEVANT_FOUND,True,True,Uncertain,3.0,∀x (InChemicalEndangerment(x) → Harmful(x)),6
+181,816,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+182,817,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Have(x, corporateJob) → ¬Take(x, financialRisk))",5
+183,818,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Have(x, corporateJob) → ¬Take(x, financialRisk))",5
+184,569,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∃x (Wildfeed(x) ∧ Unannounced(x) ∧ Program(x)),4
+185,570,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∃x (Wildfeed(x) ∧ Unannounced(x) ∧ Program(x)),4
+186,571,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+187,376,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+188,377,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+189,378,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+190,427,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+191,428,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,4
+192,429,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,Poem(catullus4) ∧ StrongAgingAnalogy(catullus4),4
+193,666,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"Adapted(westworld, westworldTheFilm) ∧ Produce(westworldTheFilm, year1973) ∧ Wrote(michael, westworldTheFilm) ∧ Directed(michael, westworldTheFilm)",4
+194,667,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,American(westworld) ∧ ScienceFictionThriller(westworld),4
+195,655,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+196,656,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+197,77,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"DistrictIn(xiufeng, guilin) ∧ DistrictIn(xiangshan, guilin) ∧ DistrictIn(diecai, guilin) ∧ DistrictIn(qixing, guilin) ∧ City(guilin)",2
+198,78,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"DistrictIn(xiufeng, guilin) ∧ DistrictIn(xiangshan, guilin) ∧ DistrictIn(diecai, guilin) ∧ DistrictIn(qixing, guilin) ∧ City(guilin)",2
+199,79,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+200,999,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+201,1000,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+202,1001,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+203,183,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x (OwnedBy(x, employee) → ConnectedTo(x, companyWiFi))",5
+204,184,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+205,185,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+206,1130,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+207,1131,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+208,1132,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+209,1406,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+210,1407,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+211,1408,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+212,1409,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+213,1248,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+214,1249,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+215,1250,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (ThisBrand(x) ∧ Product(x) → (ProducedIn(x, china) ⊕ ProducedIn(x, uS)))",8
+216,1251,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (ThisBrand(x) ∧ Product(x) → (ProducedIn(x, china) ⊕ ProducedIn(x, uS)))",8
+217,1252,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (ThisBrand(x) ∧ Product(x) → (ProducedIn(x, china) ⊕ ProducedIn(x, uS)))",8
+218,939,True,SKIP_NOT_CONVERGENT,False,False,,,,6
+219,940,False,SKIP_NOT_CONVERGENT,True,False,,,,6
+220,494,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+221,495,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+222,496,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+223,896,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+224,897,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (BatteryPoweredWatch(x) → ¬AutomaticWatch(x)),5
+225,898,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (BatteryPoweredWatch(x) → ¬AutomaticWatch(x)),5
+226,899,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (BatteryPoweredWatch(x) → ¬AutomaticWatch(x)),5
+227,686,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+228,696,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+229,419,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+230,420,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+231,1381,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+232,1382,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+233,1383,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,∀x (Cellphone(x) → Phone(x)),7
+234,1384,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,∀x (Cellphone(x) → Phone(x)),7
+235,733,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (IPhone(x) → Electronic(x)),2
+236,110,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Museum(metropolitanMuseumOfArt) ∧ In(metropolitanMuseumOfArt, nYC)",5
+237,111,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+238,112,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+239,1117,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,5
+240,1118,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+241,1119,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+242,83,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+243,84,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"Village(gasteren) ∧ Province(drenthe) ∧ In(gasteren, drenthe)",4
+244,85,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+245,599,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+246,600,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+247,601,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+248,270,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"FinishesIn(bobbyFlynn, number7) ∧ CompetesOnAustralianIdol(bobbyFlynn)",6
+249,271,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+250,272,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+251,713,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+252,295,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"ShowRunnerOf(maggieFriedman, witchesOfEastEnd) ∧ ExecutiveProducerOf(maggieFriedman, witchesOfEastEnd) ∧ LifetimeTelevisionSeries(maggieFriedman)",5
+253,296,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+254,297,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+255,358,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+256,359,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+257,432,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,Song(hoorayHoorayItsAHoliHoliday) ∧ ¬Number1GermanSingle(hoorayHoorayItsAHoliHoliday),4
+258,433,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+259,434,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+260,692,True,OK_RELEVANT_FOUND,True,True,Uncertain,3.0,"∀x (CanMake(x, cookies) ∧ CanMake(x, muffins) → Baker(x))",6
+261,693,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Chef(x) → Can(x, cook))",6
+262,557,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"∃x (Develop(eTS, x) ∧ AssociatedWith(x, entryToUSEducationInstitution))",4
+263,558,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∃x (Administer(eTS, x) ∧ InternationalTest(x) ∧ (TOEFL(x) ∨ TOEIC(x) ∨ GRE(x) ∨ SubjectTest(x)))",4
+264,559,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+265,993,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (Hodophiles(x) ∧ ¬(∃y (Resist(x, y) ∧ Hallmark(y) ∧ Delectabl(y) ∧ Dessert(y) ∧ FamousIn(y, italy))))",6
+266,994,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+267,995,False,SKIP_NOT_CONVERGENT,True,False,,,,6
+268,776,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+269,777,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+270,778,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+271,395,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+272,396,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,Speedway(islip) ∧ SmallestRaceTrack(islip),5
+273,397,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,Speedway(islip) ∧ SmallestRaceTrack(islip),5
+274,1211,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+275,1212,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+276,1213,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+277,1214,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+278,32,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+279,33,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+280,34,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+281,705,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+282,198,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+283,199,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+284,200,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+285,676,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+286,677,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Studied(daniel, bioengineering) ∧ UndergraduateAt(daniel, riceUniversity)",5
+287,678,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+288,326,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+289,327,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+290,328,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+291,329,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+292,255,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+293,256,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"Island(luzon) ∧ In(luzon, philippines)",3
+294,257,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Island(luzon) ∧ In(luzon, philippines)",3
+295,961,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+296,962,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+297,963,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+298,683,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Student(x) ∧ LearningPiano(x) → Can(x, strike, rightNote))",7
+299,684,False,SKIP_NOT_CONVERGENT,True,False,,,,7
+300,650,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+301,651,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+302,572,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+303,573,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+304,574,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+305,1090,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+306,1091,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (In(x, loveCity) → (ConsidersMostImportantLoveLanguage(x, physicalTouch)  ∨ ConsidersMostImportantLoveLanguage(x, wordOfAffirmation))",5
+307,1092,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x ((ConsidersMostImportantLoveLanguage(x, physicalTouch)  ∧ In(x, loveCity) → GoodWith(x, pet))",5
+308,1093,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (In(x, loveCity) → (ConsidersMostImportantLoveLanguage(x, physicalTouch)  ∨ ConsidersMostImportantLoveLanguage(x, wordOfAffirmation))",5
+309,1094,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (In(x, loveCity) → (ConsidersMostImportantLoveLanguage(x, physicalTouch)  ∨ ConsidersMostImportantLoveLanguage(x, wordOfAffirmation))",5
+310,1277,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+311,1278,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Bird(x) → ∃y ∃z (¬(y=z) ∧ Wing(y) ∧ Wing(z) ∧ Have(x, y) ∧ Have(x, z)))",6
+312,1279,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Bird(x) → ∃y ∃z (¬(y=z) ∧ Wing(y) ∧ Wing(z) ∧ Have(x, y) ∧ Have(x, z)))",6
+313,86,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+314,87,False,OK_RELEVANT_FOUND,False,True,Uncertain,4.0,"Directed(andyChang, endGame)",6
+315,88,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+316,17,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+317,18,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+318,19,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+319,737,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+320,1378,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+321,1379,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+322,1380,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+323,712,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+324,72,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,¬(Periodical(mort) ∨ Auction(mort) ∨ Bibliography(mort) ∨ Background(mort)),4
+325,73,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+326,279,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,DramaFilm(adventuresOfRusty) ∧ ChildrensFilm(adventuresOfRusty),4
+327,280,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+328,281,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+329,282,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"Produces(paramount, tintin)",4
+330,660,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+331,661,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"PartysSecretaryGeneral(dengXiaoping) ∧ Under(dengXiaoping, mao) ∧ VicePremierInThe1950s(dengXiaoping) ∧ PresidedOver(dengXiaoping, antiRightistCampaign) ∧ LaunchedBy(antiRightistCampaign, mao)",6
+332,662,True,OK_RELEVANT_FOUND,True,True,Uncertain,3.0,"InstrumentalIn(dengXiaoping, chinasEconomicReconstruction) ∧ Following(chinasEconomicReconstruction, greatLeapForward) ∧ Disastrous(greatLeapForward)",6
+333,1047,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+334,1048,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+335,1049,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+336,1050,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+337,1051,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+338,1052,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+339,1053,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+340,1054,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+341,1055,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+342,1056,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+343,521,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,American(captainAmerica) ∧ TopTenFavorite(captainAmerica) ∧ Superhero(captainAmerica),5
+344,522,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Superhero(x) ∧ American(x) → ComeFrom(x, dCUniverse) ⊕ ComeFrom(x, marvelUniverse))",5
+345,523,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+346,228,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,4
+347,229,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,Essayist(robertZimmer),4
+348,230,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+349,694,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+350,907,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+351,908,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+352,909,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+353,473,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+354,474,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"CapitalOf(paris, france)",6
+355,475,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+356,900,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (SportsCar(x) → LoudCar(x)),5
+357,901,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (SportsCar(x) → LoudCar(x)),5
+358,902,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+359,903,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (SportsCar(x) → LoudCar(x)),5
+360,1283,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Plant(x) → ¬CuteAnimal(x)),5
+361,1284,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Plant(x) → ¬CuteAnimal(x)),5
+362,1285,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+363,435,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+364,436,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+365,208,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,WordSetter(michael),4
+366,209,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"Magazine(worldMedicine) ∧ EditedBy(worldMedicine, michael)",4
+367,210,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,British(michael) ∧ Physician(michael) ∧ Journalist(michael) ∧ Author(michael) ∧ Broadcaster(michael),4
+368,211,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,British(michael) ∧ Physician(michael) ∧ Journalist(michael) ∧ Author(michael) ∧ Broadcaster(michael),4
+369,212,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+370,699,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+371,742,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x ∀y (HandbrakeOf(x, y) ∧ Car(y) → Up(x) ⊕ Down(x))",2
+372,1020,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+373,1021,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+374,1022,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+375,158,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,∀x (ArtilleryFortification(x) → DeployCannons(x)),5
+376,159,True,OK_RELEVANT_FOUND,True,True,Uncertain,3.0,"∀x ∀y ((Roundel(x) ∧ ArtilleryFortification(y)) → Older(x, y))",5
+377,160,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+378,161,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Roundel(x) → (Rounded(x) ∧ ArtilleryFortification(x))),5
+379,732,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+380,485,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Volunteer(x) → Receive(x, intangibleBenefit))",6
+381,486,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+382,487,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+383,1002,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+384,1003,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+385,1004,False,SKIP_NOT_CONVERGENT,True,False,,,,7
+386,615,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+387,616,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+388,1235,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+389,1236,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+390,1237,False,SKIP_NOT_CONVERGENT,True,False,,,,7
+391,1238,True,SKIP_NOT_CONVERGENT,False,False,,,,7
+392,1261,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+393,1262,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Fish(x) → ¬Bird(x)),5
+394,1263,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Fish(x) → ¬Bird(x)),5
+395,453,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+396,454,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+397,455,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+398,1424,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+399,1425,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+400,1426,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (In(x, sizeTown) → (Big(x) ∨ Small(x)))",8
+401,1427,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (In(x, sizeTown) → (Big(x) ∨ Small(x)))",8
+402,1428,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (In(x, sizeTown) → (Big(x) ∨ Small(x)))",8
+403,1429,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (In(x, sizeTown) → (Big(x) ∨ Small(x)))",8
+404,287,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Creates(maya, dIRay) ∧ Writes(maya, dIRay)",4
+405,288,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,TelevisionSeries(dIRay) ∧ PoliceProcedural(dIRay),4
+406,1342,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+407,1343,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+408,1344,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Take(x, barExam) → CanRead(x))",6
+409,834,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+410,835,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+411,836,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+412,537,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+413,538,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ∀y (Person(x) ∧ Product(y) ∧ ¬HaveEnoughMoneyFor(x, y) → ¬Buy(x, y))",5
+414,707,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,∃x (ArtificialSatellite(x) ∧ ¬USInvention(x)),2
+415,701,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∃x (Cat(x) ∧ ¬Pet(x)),2
+416,967,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+417,968,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+418,969,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+419,837,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (ProfessionalBasketballPlayer(x) → ¬ProfessionalSoccerPlayer(x)),5
+420,838,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (ProfessionalBasketballPlayer(x) → ¬ProfessionalSoccerPlayer(x)),5
+421,839,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+422,1274,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+423,1275,True,OK_RELEVANT_FOUND,True,True,Uncertain,4.0,"¬WorkAt(mary, pool)",5
+424,1276,False,OK_RELEVANT_FOUND,False,True,Uncertain,4.0,"¬WorkAt(mary, pool)",5
+425,746,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+426,267,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+427,268,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"BornIn(bernardaBrysonShahn, athensOhio)",4
+428,269,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+429,982,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+430,983,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+431,1298,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+432,1299,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (OnPayroll(x) → PaidBy(x, school))",8
+433,1300,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (OnPayroll(x) → PaidBy(x, school))",8
+434,691,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+435,611,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+436,612,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+437,613,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+438,614,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+439,107,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (SevenDistinctWorks(x) → Heptalogy(x)),3
+440,108,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (SevenDistinctWorks(x) → Heptalogy(x)),3
+441,109,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+442,1017,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+443,1018,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (AttendRegularly(x, renaissanceFair) → Enjoy(x, dressingUp, oldFashionedClothing) ∧ Enjoy(x, dressingUp, historicalPeriodClothing))",6
+444,1019,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (AttendRegularly(x, renaissanceFair) → Enjoy(x, dressingUp, oldFashionedClothing) ∧ Enjoy(x, dressingUp, historicalPeriodClothing))",6
+445,714,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+446,944,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+447,945,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+448,946,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+449,720,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,OpenSourceSoftware(drishti),2
+450,461,True,NO_RELEVANT_FOUND_UNDER_BUDGET,True,False,,,,7
+451,462,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,7
+452,463,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"∀x ∀y (Student(x) ∧ GetGradeIn(x, a, englishClass) → EnglishClassScore(x, y) ∧ GreaterThan90(y) ∧ LowerThan95(y))",7
+453,617,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Day(x) → ¬Prefer(olivia, warmTemperature, x))",7
+454,592,False,OK_RELEVANT_FOUND,False,True,Uncertain,3.0,∀x (Paid(x) ∧ Software(x) → ¬UnderGNULicense(x)),5
+455,593,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,GUI(tora),5
+456,1199,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+457,1200,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+458,1201,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+459,497,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+460,498,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+461,499,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,Horse(detroitcity),5
+462,339,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+463,340,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,Architect(monhoff) ∧ Artist(monhoff) ∧ Illustrator(monhoff),4
+464,51,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"HonoredBy(miroslavFiedler, fiedlerEigenvalue)",4
+465,52,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+466,53,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,Czech(miroslavFiedler) ∧ Mathematician(miroslavFiedler),4
+467,444,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Laptop(x) → Computer(x)),3
+468,445,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+469,29,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Graduated(walterBrown, harvard) ∧ GraduatedWith(walterBrown, bachelorsOfArt)",4
+470,30,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"∃t(In(walterBrown, toledo, t) ∧ In(walterBrownFather, toledo, t) ∧ PracticedLawTogether(walterBrown, walterBrownFather, t))",4
+471,31,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+472,1147,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+473,1148,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+474,1149,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+475,1150,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+476,1151,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+477,585,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+478,586,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+479,587,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+480,588,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+481,1369,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,∀x (¬Ghost(x)),6
+482,1370,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+483,1371,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+484,1264,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Tiger(x) → Cat(x)),5
+485,1265,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Tiger(x) → Cat(x)),5
+486,1266,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,5
+487,1267,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Tiger(x) → Cat(x)),5
+488,195,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,10
+489,196,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,10
+490,197,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,10
+491,23,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"LikePlayingWith(cat, taigaVole)",4
+492,24,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"Vole(taigaVole) ∧ LiveIn(taigaVole, northAmerica)",4
+493,1041,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+494,1042,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+495,1043,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+496,174,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+497,175,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,∀x (LabMonitor(x) → Discounted(x)),5
+498,176,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,∀x (LabMonitor(x) → Discounted(x)),5
+499,1155,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+500,1156,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+501,1157,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+502,1158,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+503,1178,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+504,1179,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+505,1180,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+506,10,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Holds(suduva, theLithuanianSuperCup)",2
+507,285,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Village(ainderbyQuernhow) ∧ CivilParish(ainderbyQuernhow) ∧ In(ainderbyQuernhow, hambletonDistrict)",4
+508,286,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"Village(ainderbyQuernhow) ∧ CivilParish(ainderbyQuernhow) ∧ In(ainderbyQuernhow, hambletonDistrict)",4
+509,138,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Author(douglasAdams) ∧ Authored(douglasAdams, theSalmonOfDoubt) ∧ Book(theSalmonOfDoubt)",5
+510,139,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Author(douglasAdams) ∧ Authored(douglasAdams, theSalmonOfDoubt) ∧ Book(theSalmonOfDoubt)",5
+511,140,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+512,822,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+513,823,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+514,824,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+515,825,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+516,826,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+517,827,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+518,283,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+519,284,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+520,695,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+521,884,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+522,885,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+523,886,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+524,92,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,WorldLeadingLightingDesigner(hughVanstone),4
+525,93,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+526,94,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+527,448,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+528,379,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"American(donaldErvinKnuth) ∧ ComputerScientist(donaldErvinKnuth) ∧ Mathematician(donaldErvinKnuth) ∧ ProfessorEmeritusAt(donaldErvinKnuth, stanford)",2
+529,380,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"American(donaldErvinKnuth) ∧ ComputerScientist(donaldErvinKnuth) ∧ Mathematician(donaldErvinKnuth) ∧ ProfessorEmeritusAt(donaldErvinKnuth, stanford)",2
+530,381,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+531,362,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (NeocrepidoderaCorpulenta(x) → (FleaBeetle(x) ∨ Moth(x))),4
+532,363,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (NeocrepidoderaCorpulenta(x) → (FleaBeetle(x) ∨ Moth(x))),4
+533,640,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+534,641,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+535,642,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Milanese(carrozzeriaColli) ∧ CoachBuilder(carrozzeriaColli) ∧ Company(carrozzeriaColli) ∧ EstablishedBy(carrozzeriaColli, giuseppeColli) ∧ EstablishedIn(carrozzeriaColli, 1931)",6
+536,643,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Milanese(carrozzeriaColli) ∧ CoachBuilder(carrozzeriaColli) ∧ Company(carrozzeriaColli) ∧ EstablishedBy(carrozzeriaColli, giuseppeColli) ∧ EstablishedIn(carrozzeriaColli, 1931)",6
+537,644,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+538,386,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+539,387,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+540,246,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+541,247,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+542,248,True,NO_RELEVANT_FOUND_UNDER_BUDGET,True,False,,,,3
+543,760,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+544,761,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+545,762,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+546,763,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+547,773,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+548,774,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x ∀y (PaymentCard(x) ∧ RussianBank(y) ∧ IssuedBy(x, y) → ¬UsedWith(x, applePay))",5
+549,775,True,NO_RELEVANT_FOUND_UNDER_BUDGET,True,False,,,,5
+550,150,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+551,151,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+552,152,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"ProducedBy(astro, chevrolet) ∧ Van(astro)",3
+553,153,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+554,1123,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+555,1124,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"∀x (WorkFrom(x, home) → Have(x, relaxedSchedule))",5
+556,1125,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x (WorkIn(x, office) ⊕ WorkFrom(x, home))",5
+557,80,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+558,81,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,MusicSupervisor(jasonKramer) ∧ American(jasonKramer),5
+559,82,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+560,1223,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+561,1224,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+562,1225,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+563,1226,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+564,596,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+565,597,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+566,598,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+567,321,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+568,322,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+569,1166,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+570,1167,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+571,1168,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+572,1393,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+573,1394,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+574,1395,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Grass(x) → ¬Food(x)),7
+575,1396,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Grass(x) → ¬Food(x)),7
+576,60,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+577,61,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+578,62,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Team(goldenStateWarriors) ∧ From(goldenStateWarriors, sanFrancisco)",6
+579,620,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+580,1215,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+581,1216,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+582,1217,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"∀x ((Devices(x) → (With(x, companyLogo) ⊕ BelongTo(x, employee)))",8
+583,1218,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+584,710,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,2
+585,916,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+586,917,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+587,918,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+588,919,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+589,920,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+590,1286,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+591,1287,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+592,1288,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+593,936,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (MaxListenTo(x) → (ClassicalMusic(x) ⊕ Rap(x))),7
+594,937,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+595,938,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (MaxListenTo(x) → (ClassicalMusic(x) ⊕ Rap(x))),7
+596,113,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"∀x ((∃y(Peak(x, y))) → Popular(x))",4
+597,114,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"Produce(whiteTown, yourWoman) ∧ OnePersonBand(whiteTown)",4
+598,115,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+599,996,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+600,997,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Function(x) ∧ RepresentOn(x, straightLine, coordinatePlane) → LinearFunction(x))",7
+601,998,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Function(x) ∧ RepresentOn(x, straightLine, coordinatePlane) → LinearFunction(x))",7
+602,540,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x ∀y (SoccerTeam(x) ∧ SoccerTeam(y) ∧ SameScore(x, y) ∧ During(regularTime) ∧ During(extraTime) → PlayPenalty(x, y))",4
+603,541,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x ∀y (SoccerTeam(x) ∧ SoccerTeam(y) ∧ SameScore(x, y) ∧ During(regularTime) ∧ During(extraTime) → PlayPenalty(x, y))",4
+604,35,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Form(stevehillage, system7) ∧ Form(miquettegiraudy, system7)",6
+605,36,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+606,37,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"BasedIn(system7, uk) ∧ ElectronicDanceMusicBand(system7)",6
+607,542,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Model(x) ∧ Summarization(x) ∧ OnlyUseInputDocument(x) → Faithful(x)),3
+608,543,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Model(x) ∧ Summarization(x) ∧ OnlyUseInputDocument(x) → Faithful(x)),3
+609,984,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,7
+610,985,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+611,986,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+612,1023,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (WorkAt(x, jesssCompany) → Miserly(x) ∧ NeedToSave(x, aLargePortionOfIncome)⊕ SpendFrivolously(x, aLotOfMoney))",7
+613,1024,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+614,1025,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+615,624,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Album(wolfgangamadeusphoenix) ∧ IsAlbumOf(wolfgangamadeusphoenix, phoenix) ∧ SoldOver(wolfgangamadeusphoenix, 500,000)",5
+616,625,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+617,11,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,Angry(theHulk) → WakesUp(theHulk),10
+618,12,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,10
+619,13,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,10
+620,258,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+621,259,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,4
+622,260,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+623,1057,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+624,1058,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+625,1059,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+626,1035,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+627,1036,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+628,1037,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+629,1044,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,6
+630,1045,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+631,1046,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+632,858,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+633,859,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+634,860,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+635,861,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+636,862,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+637,722,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+638,952,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+639,953,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+640,954,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+641,237,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"OfficeIn(ableton, germany)",5
+642,238,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+643,239,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"OfficeIn(ableton, germany)",5
+644,1295,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+645,1296,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+646,1297,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+647,1354,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+648,1355,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (MemberOf(x, universityFaculty) → Professor(x))",6
+649,1356,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (MemberOf(x, universityFaculty) → Professor(x))",6
+650,344,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+651,345,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+652,346,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Cutman(x) → Prevent(x, physicalDamageToAFighter) ∧ Treat(x, physicalDamageToAFighter))",4
+653,488,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,Painting(monaLisa) ∧ TheWorldsBestKnown(monaLisa),4
+654,489,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+655,490,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+656,887,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (ProfessionalTennisUmpire(x) → ¬ProfessionalTennisPlayer(x)),5
+657,888,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (ProfessionalTennisUmpire(x) → ¬ProfessionalTennisPlayer(x)),5
+658,889,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+659,890,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (ProfessionalTennisUmpire(x) → ¬ProfessionalTennisPlayer(x)),5
+660,891,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (ProfessionalTennisUmpire(x) → ¬ProfessionalTennisPlayer(x)),5
+661,892,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (ProfessionalTennisUmpire(x) → ¬ProfessionalTennisPlayer(x)),5
+662,367,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,∀x (Buisness(x) ∧ ¬Sanctioned(x) → Free(x)),4
+663,368,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,∀x (Buisness(x) ∧ ¬Sanctioned(x) → Free(x)),4
+664,369,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,∀x (Buisness(x) ∧ Sanctioned(x) → Limited(x)),4
+665,745,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+666,313,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+667,314,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+668,315,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"Archeologist(johnEvans) ∧ Popularize(johnEvans, termPalstave)",4
+669,273,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,Japanese(koeitecmo) ∧ VideoGameHoldingCompany(koeitecmo) ∧ AnimeHoldingCompany(koeitecmo) ∧ HoldingCompany(x),4
+670,274,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+671,275,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,4
+672,566,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+673,567,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+674,568,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+675,718,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,FootballPlayer(adamBuska) ∧ European(adamBuska),2
+676,1152,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+677,1153,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (ATop3BestSellingVideoGame(x) → Multiplatform(x)),5
+678,1154,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+679,589,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+680,590,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+681,591,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+682,264,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∃x ∃y(PlaysIn(daveedDiggs, x, hamilton) ∧ (¬(x=y)) ∧ PlaysIn(daveedDiggs, y, hamilton)) ∧ OnBroadway(hamilton) ∧ Musical(hamilton)",6
+683,265,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+684,266,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+685,626,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"In(ernestPohl, polishFirstDivision) ∧ ScoredOver(ernestPohl, 180Goals)",5
+686,627,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+687,416,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"RunUnopposedFor(ann, philadelphiaCityCouncil, year1980)",5
+688,417,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+689,418,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+690,336,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+691,337,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"WonCup(aberdeen, year2013Final)",4
+692,338,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"WonCup(aberdeen, year2013Final)",4
+693,843,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+694,844,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+695,845,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+696,1080,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+697,1081,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+698,1082,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+699,1083,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+700,721,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+701,924,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+702,925,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+703,926,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+704,1280,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+705,1281,False,OK_RELEVANT_FOUND,False,True,Uncertain,4.0,¬Energetic(sid) ∧ ¬Sloth(sid)),5
+706,1282,True,OK_RELEVANT_FOUND,True,True,Uncertain,4.0,¬Energetic(sid) ∧ ¬Sloth(sid)),5
+707,539,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x ∀y (EuropeanSoccerClub(x) ∧ EuropeanSoccerClub(y) ∧ Attend(x, ucl) ∧ Attend(y, uel) → HigherRank(x, y))",6
+708,192,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ∀y ((Coach(x, y) ∧ FootballClub(y)) → FootballCoach(x))",7
+709,193,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀w ∀x ∀y ∀z ((PlayPositionFor(x, w, y, z) ∧ InNFL(y, z)) → PlayInNFL(x))",7
+710,194,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+711,1333,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (ClassroomIn(x, williamLHarknessHall) ∧ ¬PrivateStudySpot(x))",6
+712,1334,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+713,1335,False,SKIP_NOT_CONVERGENT,True,False,,,,6
+714,298,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+715,299,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"LargeComplex(shafaq-asiman) ∧ LargeComplex(shafaq-asiman) ∧ Offshore(shafaq-asiman) ∧ GeologicalStructures(shafaq-asiman) ∧ In(shafaq-asiman, caspiansea)",3
+716,300,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"LargeComplex(shafaq-asiman) ∧ LargeComplex(shafaq-asiman) ∧ Offshore(shafaq-asiman) ∧ GeologicalStructures(shafaq-asiman) ∧ In(shafaq-asiman, caspiansea)",3
+717,213,True,OK_RELEVANT_FOUND,True,True,Uncertain,3.0,"Tutor(herodicus, hippocrates)",6
+718,214,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+719,215,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+720,216,False,OK_RELEVANT_FOUND,False,True,Uncertain,4.0,"Recommend(herodicus, massages)",6
+721,217,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Born(herodicus, selymbia) ∧ City(selymbia)",6
+722,1258,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+723,1259,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x ((Kid(x) ∧ In(x, ourFamily)) → ¬Love(x, opera))",5
+724,1260,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x ((Kid(x) ∧ In(x, ourFamily)) → ¬Love(x, opera))",5
+725,204,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,RefereeObserver(brianWinter),5
+726,205,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,RefereeObserver(brianWinter),5
+727,206,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Retired(brianWinter) ∧ RetiredIn(brianWinter, yr2012)",5
+728,207,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+729,1100,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+730,1101,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+731,1102,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+732,1103,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+733,1104,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+734,1105,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+735,1106,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (At(x, boardGameNight) → (InterestedIn(x, puzzle) ∨ BadAt(x, chess)))",5
+736,1107,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+737,1108,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+738,1109,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+739,373,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x (SoccerPlayer(x) ∧ UseEfficiently(x, leftFoot) ∧ UseEfficiently(x, rightFoot) → TopSoccerPlayer(x))",7
+740,374,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (SoccerPlayer(x) ∧ UseEfficiently(x, leftFoot) ∧ UseEfficiently(x, rightFoot) → TopSoccerPlayer(x))",7
+741,509,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Hatchery(nationalLobsterHatchery) ∧ LocatedIn(nationalLobsterHatchery, padstowEngland)",5
+742,510,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+743,511,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+744,632,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+745,633,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+746,1357,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+747,1358,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+748,1359,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (UsedIn(x, labComputer) ∧ UnixOperatingSystem(x) → Software(x))",8
+749,1360,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (UsedIn(x, labComputer) ∧ UnixOperatingSystem(x) → Software(x))",8
+750,352,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+751,353,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+752,354,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+753,225,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,TraditionalSummerCamp(campDavern) ∧ ForBoysAndGirls(campDavern),4
+754,226,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,TraditionalSummerCamp(campDavern) ∧ ForBoysAndGirls(campDavern),4
+755,227,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+756,990,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+757,991,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+758,992,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+759,25,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+760,26,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+761,27,False,OK_RELEVANT_FOUND,False,True,Uncertain,3.0,"Fictional(medeEmpire) ∧ SetIn(thickAsTheives, medeEmpire)",7
+762,28,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+763,350,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,MeeGoBased(weTab) ∧ TabletComputer(weTab),4
+764,351,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+765,1181,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+766,1182,False,SKIP_NOT_CONVERGENT,True,False,,,,5
+767,1183,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+768,450,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+769,451,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+770,452,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+771,186,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,∀x (Attend(x) → (AttendInPerson(x) ⊕ AttendRemotely(x))),5
+772,187,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,∀x (Attend(x) → (AttendInPerson(x) ⊕ AttendRemotely(x))),5
+773,188,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (AttendInPerson(x) → Registered(x)),5
+774,629,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+775,630,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+776,631,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+777,3,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Has(mary, flu)",3
+778,120,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,British(james) ∧ Lawyer(james),5
+779,121,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,British(james) ∧ Lawyer(james),5
+780,122,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+781,364,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+782,365,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+783,366,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"About(beastsOfPrey, shetani) ∧ Creature(shetani)",4
+784,47,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"Named(amyODell, nameODell) ∧ NotablePerson(amyODell) ∧ Named(jackODell, nameODell) ∧ NotablePerson(jackODell) ∧ Named(matsODell, nameODell) ∧ NotablePerson(matsODell)",5
+785,48,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"Named(amyODell, nameODell) ∧ NotablePerson(amyODell) ∧ Named(jackODell, nameODell) ∧ NotablePerson(jackODell) ∧ Named(matsODell, nameODell) ∧ NotablePerson(matsODell)",5
+786,49,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+787,50,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+788,479,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+789,480,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+790,481,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+791,741,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+792,764,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+793,765,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (TippedEmployee(x) → ¬EntitledTo(x, federalMinimumWage))",5
+794,766,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (TippedEmployee(x) → ¬EntitledTo(x, federalMinimumWage))",5
+795,767,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (TippedEmployee(x) → ¬EntitledTo(x, federalMinimumWage))",5
+796,768,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (TippedEmployee(x) → ¬EntitledTo(x, federalMinimumWage))",5
+797,769,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (TippedEmployee(x) → ¬EntitledTo(x, federalMinimumWage))",5
+798,231,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"BornIn(asaHoffmann, newYorkCity)",6
+799,232,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+800,233,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"LiveIn(asaHoffmann, manhattan)",6
+801,779,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+802,780,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (Apply(x, schengenVisa) → Provide(x, financialGuarantees))",5
+803,781,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+804,740,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+805,594,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+806,595,False,OK_RELEVANT_FOUND,False,True,Uncertain,7.0,"∀x (GreatLake(x) → FormAtEndOf(x, lastGlacialPeriod))",8
+807,831,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,5
+808,832,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x ((Professional(x) ∧ Defender(x)) → (Professional(x) ∧ SoccerPlayer(x))),5
+809,833,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x ((Professional(x) ∧ Defender(x)) → (Professional(x) ∧ SoccerPlayer(x))),5
+810,89,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+811,90,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Proposed(justinKruger, naiveCynicism) ∧ ∃y (colleagueOfJustinKruger(y) ∧ Proposed(y, naiveCynicism))",3
+812,91,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+813,382,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+814,383,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+815,384,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+816,385,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"AwardedTo(turingAward, donaldKnuth) ∧ AwardedTo(turingAward, marvinMinsky) ∧ AwardedTo(turingAward, richardHamming) ∧ AwardedTo(turingAward, johnMccarthy)",5
+817,1219,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+818,1220,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+819,1221,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+820,1222,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+821,318,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+822,319,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"ExtendedPlay(inside) ∧ LeadSingleOf(showYourLove, inside)",5
+823,320,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+824,734,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Table(x) → Round(x)),2
+825,711,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (JuvenileDelinquent(x) → Commited(x, crime))",2
+826,1084,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+827,1085,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+828,1086,False,SKIP_NOT_CONVERGENT,True,False,,,,6
+829,1087,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+830,1088,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+831,1089,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+832,605,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (RoomFor(x, dessert) → RoomFor(x, broccoli))",6
+833,606,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (RoomFor(x, dessert) → RoomFor(x, broccoli))",6
+834,607,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+835,123,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,American(imagineDragon) ∧ RockBand(imagineDragon),7
+836,124,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"LeadSinger(imagineDragon, dan)",7
+837,125,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+838,1310,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+839,1311,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Philosopher(x) → Reason(x)),5
+840,1312,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Philosopher(x) → Reason(x)),5
+841,458,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,5
+842,459,True,NO_RELEVANT_FOUND_UNDER_BUDGET,True,False,,,,5
+843,460,True,NO_RELEVANT_FOUND_UNDER_BUDGET,True,False,,,,5
+844,799,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+845,800,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Clothes(x) → Product(x)),5
+846,801,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Clothes(x) → Product(x)),5
+847,168,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Pet(x) → Animal(x)),6
+848,169,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+849,170,False,NO_RELEVANT_FOUND_UNDER_BUDGET,False,False,,,,6
+850,723,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+851,66,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+852,67,True,OK_RELEVANT_FOUND,True,True,Uncertain,4.0,AboutFuture(threeBodyProblem),5
+853,68,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+854,1184,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+855,1185,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"∀x (EarlyMorningPerson(x) → Have(x, earlyMorningHabit))",5
+856,1186,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x (EarlyMorningPerson(x) → Have(x, earlyMorningHabit))",5
+857,716,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+858,41,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∃x ∃y ∃z(Elephantopus(x) ∧ In(x,africa) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ In(y, southernasia) ∧ (¬(x=z)) ∧ (¬(y=z)) ∧ Elephantopus(z) ∧ In(z, australia))",4
+859,42,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"∃x ∃y (Elephantopus(x) ∧ NativeTo(x, southeasternunitedstates) ∧ (¬(x=y)) ∧ Elephantopus(y) ∧ NativeTo(y, southeasternunitedstates))",4
+860,43,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+861,1231,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+862,1232,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+863,1233,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+864,1234,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+865,789,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+866,790,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+867,791,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+868,792,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+869,793,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+870,794,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+871,795,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+872,796,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+873,797,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+874,798,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (InUrbanArea(x) → ¬MansionHouse(x)),5
+875,330,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x ((NationalPark(x) ∧ Locatedin(x, vietnam)) → NatureReserve(x))",5
+876,331,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+877,332,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+878,402,False,OK_RELEVANT_FOUND,False,True,Uncertain,2.0,"∃x ∃y (CompetitiveSport(x) ∧ BetOn(spectators, y, x) ∧ Banned(x))",6
+879,403,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (GreyhoundRacing(x) → ∃y (CompetitiveSport(x) ∧ Greyhound(y) ∧ BetOn(spectators, y, x)))",6
+880,544,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+881,545,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+882,731,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Tree(x) → Plant(x)),2
+883,44,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"GivenName(nameDagfinn) ∧ Named(dagfinnAarskog, nameDagfinn) ∧ NotablePerson(dagfinnAarskog) ∧ Named(dagfinnBakke, nameDagfinn) ∧ NotablePerson(dagfinnBakke)  ∧ Named(dagfinnDahl, nameDagfinn) ∧ NotablePerson(dagfinnDahl)",3
+884,45,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"GivenName(nameDagfinn) ∧ Named(dagfinnAarskog, nameDagfinn) ∧ NotablePerson(dagfinnAarskog) ∧ Named(dagfinnBakke, nameDagfinn) ∧ NotablePerson(dagfinnBakke)  ∧ Named(dagfinnDahl, nameDagfinn) ∧ NotablePerson(dagfinnDahl)",3
+885,46,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+886,744,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Movie(x) ∧ Popular(x) → ∃y ∃z (Person(y) ∧ EnjoyWatching(y, x) ∧ Person(z) ∧ EnjoyWatching(z, x) ∧ ¬(y=z)))",2
+887,682,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+888,333,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,Scottish(stJohnstone) ∧ Team(stJohnstone),6
+889,334,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+890,335,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+891,1227,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+892,1228,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+893,1229,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+894,1230,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+895,555,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+896,556,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+897,98,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"BornIn(rafaNadal, mallorca)",4
+898,99,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,ProfessionalTennisPlayer(rafaNadal),4
+899,100,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+900,730,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+901,782,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (Animal(x) → ¬Plant(x)),5
+902,783,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Animal(x) → ¬Plant(x)),5
+903,784,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+904,785,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (Animal(x) → ¬Plant(x)),5
+905,1321,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+906,1322,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+907,1323,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+908,101,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x ((DoesOlympicSport(x) ∧ GoesToOlympicGames(x)) → Olympian(x)),5
+909,102,False,OK_RELEVANT_FOUND,False,True,Uncertain,3.0,WelterWeight(carlosReyes),5
+910,103,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+911,863,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+912,864,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+913,865,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+914,866,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+915,867,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+916,868,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+917,869,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+918,870,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+919,871,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+920,524,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"CargoShip(britta) ∧ Ship(britta) ∧ BuiltFor(britta, norwegians)",4
+921,525,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"CargoShip(britta) ∧ Ship(britta) ∧ BuiltFor(britta, norwegians)",4
+922,526,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+923,141,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"∀x ((∃y(CanCatch(x, y) ∧ Ball(y))) → GoodWideReceiver(x))",6
+924,142,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+925,143,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+926,14,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,"Precede(longueau, boves)",9
+927,15,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"RailwayStation(boves) ∧ In(boves, france)",9
+928,16,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,9
+929,309,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,edwinSmith=tedSmith,5
+930,310,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"From(edwinSmith, newZealand) ∧ Rower(edwinSmith) ∧ From(edwinSmith, auckland)",5
+931,311,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"From(edwinSmith, newZealand) ∧ Rower(edwinSmith) ∧ From(edwinSmith, auckland)",5
+932,312,False,OK_RELEVANT_FOUND,False,True,Uncertain,3.0,"Sergeant(edwinSmith) ∧ ServeWith(edwinSmith, newZealand24thBattalion) ∧ ServeIn(edwinSmith, italy) ∧ ServeIn(edwinSmith, egypt)",5
+933,503,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+934,504,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+935,505,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,3
+936,407,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+937,408,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"Event(uFCFightNight) ∧ MixedMartial(uFCFightNight) ∧ HeldIn(uFCFightNight, sweden)",6
+938,409,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+939,410,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+940,1351,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,7
+941,1352,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (OnCounter(x) ∧ Drink(x) → Edible(x)),7
+942,1353,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (OnCounter(x) ∧ Drink(x) → Edible(x)),7
+943,118,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+944,119,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"TalentedPoet(lorca) ∧ Support(lorca, populists)",5
+945,973,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+946,974,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+947,975,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+948,63,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (SubscribedTo(x, aMCAList) → EligibleForThreeFreeMovies(x))",6
+949,64,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+950,65,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,"∀x (Prefer(x, tVSeries) → ¬WatchTVIn(x, cinemas))",6
+951,719,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,GenusBulbophyllum(bulbophyllumAttenuatum),2
+952,467,True,OK_RELEVANT_FOUND,True,True,Uncertain,4.0,"AdministrativeCenterOf(vladivostok, farEastern)",7
+953,468,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+954,469,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+955,810,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+956,811,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Cancer(x) → Have(x, mutation))",5
+957,812,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Cancer(x) → Have(x, mutation))",5
+958,813,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Cancer(x) → Have(x, mutation))",5
+959,814,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Cancer(x) → Have(x, mutation))",5
+960,815,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Cancer(x) → Have(x, mutation))",5
+961,747,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,2
+962,341,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,ItalianName(roversi) ∧ Surname(roversi),6
+963,342,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,ItalianName(roversi) ∧ Surname(roversi),6
+964,343,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+965,672,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,British-Iraqi(zahaHadid) ∧ Architect(zahaHadid) ∧ Artist(zahaHadid) ∧ Designer(zahaHadid),4
+966,673,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+967,674,Uncertain,SKIP_GOLD_NOT_DECIDED,True,False,,,,4
+968,675,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+969,1076,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+970,1077,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (NeuroimagingTechnique(x) → (Invasive(x) ⊕ Noninvasive(x))),6
+971,1078,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (NeuroimagingTechnique(x) → (Invasive(x) ⊕ Noninvasive(x))),6
+972,1079,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (NeuroimagingTechnique(x) → (Invasive(x) ⊕ Noninvasive(x))),6
+973,1253,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+974,1254,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+975,1255,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+976,1256,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+977,1257,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,8
+978,38,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,MuseumShip(usssalem),5
+979,39,True,OK_RELEVANT_FOUND,True,True,Uncertain,2.0,MuseumShip(usssalem),5
+980,40,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,LastHeavyCruiserToEnterService(usssalem),5
+981,413,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (TSLeda(x) → ((Passenger(x) ∧ Vessel(x)) ∧ (Cargo(x) ∧ Vessel(x))),6
+982,414,True,OK_RELEVANT_FOUND,True,True,Uncertain,1.0,∀x (TSLeda(x) → (Norweigian(x) ∧ Vessel(x) ∧ Stabilizers(x))),6
+983,415,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,6
+984,552,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"BornIn(rosa, santiago)",7
+985,553,False,OK_RELEVANT_FOUND,False,True,Uncertain,3.0,"WifeOf(jose, carmen) ∧ Chilean(carmen)",7
+986,554,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,7
+987,104,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,IsRapper(tyga),4
+988,105,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,IsRapper(tyga),4
+989,106,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+990,292,True,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+991,293,False,OK_RELEVANT_FOUND,False,True,Uncertain,1.0,"Play(psyche) ∧ BasedOn(psyche, lifeOfJamesMirandaBarry)",4
+992,294,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,4
+993,1292,Uncertain,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
+994,1293,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,"∀x (Animal(x) ∧ Need(x, largeTerritory) → TravelFar(x))",5
+995,1294,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,"∀x (Animal(x) ∧ Need(x, largeTerritory) → TravelFar(x))",5
+996,1330,Uncertain,SKIP_GOLD_NOT_DECIDED,False,False,,,,6
+997,1331,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,∀x (ConvictedCriminal(x) ∧ Innocent(x) → ¬TrulyGuilty(x)),6
+998,1332,True,OK_RELEVANT_FOUND,True,True,Uncertain,0.0,∀x (ConvictedCriminal(x) ∧ Innocent(x) → ¬TrulyGuilty(x)),6
+999,400,False,OK_RELEVANT_FOUND,False,True,Uncertain,0.0,IndiePop(phoenix),5
+1000,401,False,SKIP_BASE_NOT_DECIDED,Uncertain,False,,,,5
