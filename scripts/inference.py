@@ -329,8 +329,8 @@ proven_missing_dict = {
 # subtrair o offset para saber o indice original no split de treino) e
 # evita qualquer ambiguidade com os ids de validacao.
 TRAIN_ID_OFFSET       = 100000
-TRAIN_IDS_JSON_PATH    = "../estratificacao/train_ids_selecionados.json"
-TRAIN_PREMISE_CSV_PATH = "../estratificacao/relevant_premise_train.csv"
+TRAIN_IDS_JSON_PATH    = "estratificacao/train_ids_selecionados.json"
+TRAIN_PREMISE_CSV_PATH = "estratificacao/relevant_premise_train.csv"
 
 def to_global_id(local_train_idx: int) -> int:
     return TRAIN_ID_OFFSET + int(local_train_idx)
