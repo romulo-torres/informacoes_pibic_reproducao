@@ -1,4 +1,5 @@
-import time, random, re, torch, os, gc, string, json
+import time, random, re, torch, os, gc, string, json, sys, logging
+from datetime import datetime
 import pandas as pd
 from tqdm import tqdm
 from transformers import (
@@ -123,6 +124,13 @@ def count_logic_tokens(text):
 
 
 def build_complexity_map(data):
+    """
+    Recebe uma lista/dataset de exemplos e retorna um dict
+    {posicao_local: (nl_wc, fol_tc, nl_bin, fol_bin)}.
+    A posicao_local e relativa a lista passada (0..len(data)-1);
+    quem chama essa funcao e responsavel por remapear para o id global
+    quando necessario (ver secao de carregamento do treino).
+    """
     records = []
     for i, ex in enumerate(data):
         nl_wc  = word_count(ex['premises'] + ex['conclusion'])
@@ -202,8 +210,77 @@ IS_R1_MODEL       = "DeepSeek-R1" in model_name
 USE_CHAT_TEMPLATE = IS_INSTRUCT or IS_R1_MODEL
 
 file_tag   = model_name.split("/")[-1]
-OUTPUT_DIR = "resultados_pibic_v2"
+OUTPUT_DIR = "results"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+
+# ==============================================================================
+# 1B. LOGGING (NOVO)
+# ==============================================================================
+# - Tudo que ja era impresso com print() continua sendo impresso normalmente
+#   E, alem disso, passa a ser gravado em results/run_{file_tag}.log (com timestamp),
+#   via um "tee" do stdout. Nao foi necessario reescrever cada print() existente.
+# - Um segundo arquivo, results/prompts_{file_tag}.jsonl, grava o PROMPT COMPLETO
+#   (texto ja formatado pelo chat template) enviado ao modelo em cada chamada,
+#   um registro por task/id, para permitir auditoria posterior do que foi enviado.
+RUN_LOG_PATH     = f"{OUTPUT_DIR}/run_{file_tag}.log"
+PROMPTS_LOG_PATH = f"{OUTPUT_DIR}/prompts_{file_tag}.jsonl"
+
+class _TimestampedTee:
+    """Espelha stdout para um arquivo de log, prefixando cada linha com timestamp."""
+    def __init__(self, *streams):
+        self.streams        = streams
+        self._at_line_start = True
+
+    def write(self, data):
+        for s in self.streams:
+            if s is _log_file_handle:
+                ts_data = ""
+                for ch in data:
+                    if self._at_line_start and ch != "\n":
+                        ts_data += f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] "
+                        self._at_line_start = False
+                    ts_data += ch
+                    if ch == "\n":
+                        self._at_line_start = True
+                s.write(ts_data)
+            else:
+                s.write(data)
+        self.flush()
+
+    def flush(self):
+        for s in self.streams:
+            s.flush()
+
+_log_file_handle = open(RUN_LOG_PATH, "a", encoding="utf-8")
+sys.stdout = _TimestampedTee(sys.__stdout__, _log_file_handle)
+sys.stderr = _TimestampedTee(sys.__stderr__, _log_file_handle)
+
+def log(msg, level="info"):
+    """Atalho para logs 'estruturais' (nao substitui os print() existentes, complementa)."""
+    prefix = {"info": "ℹ️ ", "warning": "⚠️ ", "error": "❌"}.get(level, "ℹ️ ")
+    print(f"{prefix} {msg}", flush=True)
+
+def log_prompt_to_jsonl(global_id, split_name, local_idx, task_name, prompt_text, n_tokens_prompt):
+    """Grava o prompt completo enviado ao modelo em um JSONL de auditoria."""
+    try:
+        with open(PROMPTS_LOG_PATH, "a", encoding="utf-8") as pf:
+            json.dump({
+                "timestamp":       datetime.now().isoformat(),
+                "id":              global_id,
+                "split":           split_name,
+                "local_idx":       local_idx,
+                "task":            task_name,
+                "n_tokens_prompt": int(n_tokens_prompt),
+                "prompt":          prompt_text,
+            }, pf, ensure_ascii=False)
+            pf.write("\n")
+    except Exception as e:
+        log(f"Falha ao gravar prompt no log jsonl (id={global_id}, task={task_name}): {e}", level="warning")
+
+log(f"===== INICIO DA EXECUCAO ({datetime.now().isoformat()}) =====")
+log(f"Log de execucao completo em : {RUN_LOG_PATH}")
+log(f"Log de prompts (auditoria)  : {PROMPTS_LOG_PATH}")
 
 print(f"Modelo selecionado : {model_name}")
 print(f"  IS_INSTRUCT      : {IS_INSTRUCT}")
@@ -212,8 +289,10 @@ print(f"  OUTPUT_DIR       : {OUTPUT_DIR}")
 
 
 # ==============================================================================
-# 2. LISTAS PARA MISSING PREMISE
+# 2. LISTAS PARA MISSING PREMISE (VALIDACAO) + TREINO (NOVO)
 # ==============================================================================
+
+# ---- Validacao (conjunto original, ja existente) ----------------------------
 raw_ids_list = [
     5,6,9,10,12,14,15,18,19,20,21,22,24,28,29,31,32,33,35,37,
     46,49,50,53,54,55,59,63,64,65,68,69,73,76,78,79,81,82,84,87,
@@ -234,6 +313,73 @@ proven_missing_dict = {
     raw_ids_list[i]: [raw_premise_list[i]]
     for i in range(len(raw_ids_list))
 }
+
+# ---- Treino (NOVO) ------------------------------------------------------------
+# IDs do conjunto de treino do FOLIO selecionados para ampliar a amostra
+# (train_ids_selecionados.json) + verificacao de premissa removivel feita
+# com o Vampire (relevant_premise_train.csv).
+#
+# Os ids desses dois arquivos sao indices no split "train" do FOLIO
+# (coluna `dataset_idx` do CSV == valores de `ids_todos` do JSON).
+#
+# Para nao colidir com os ids de validacao (0..~203), todo id de treino
+# recebe um offset fixo (TRAIN_ID_OFFSET) e passa a circular no pipeline
+# como id global = TRAIN_ID_OFFSET + dataset_idx. Ex.: dataset_idx=5 do
+# treino vira id global 100005. Isso preserva a rastreabilidade (basta
+# subtrair o offset para saber o indice original no split de treino) e
+# evita qualquer ambiguidade com os ids de validacao.
+TRAIN_ID_OFFSET       = 100000
+TRAIN_IDS_JSON_PATH   = "../estratificacao/train_ids_selecionados.json"
+TRAIN_PREMISE_CSV_PATH = "../estratificacao/out_v10/relevant_premise_train.csv"
+
+def to_global_id(local_train_idx: int) -> int:
+    return TRAIN_ID_OFFSET + int(local_train_idx)
+
+def is_train_id(global_id: int) -> bool:
+    return global_id >= TRAIN_ID_OFFSET
+
+def get_split_name(global_id: int) -> str:
+    return "train" if is_train_id(global_id) else "validation"
+
+def get_local_idx(global_id: int) -> int:
+    return global_id - TRAIN_ID_OFFSET if is_train_id(global_id) else global_id
+
+ids_todos_train = []
+TRAIN_IDS_GLOBAL = []
+
+try:
+    with open(TRAIN_IDS_JSON_PATH, "r", encoding="utf-8") as f:
+        train_ids_data = json.load(f)
+    ids_todos_train  = sorted(set(train_ids_data["ids_todos"]))
+    TRAIN_IDS_GLOBAL = [to_global_id(i) for i in ids_todos_train]
+    log(f"Treino: {len(ids_todos_train)} ids carregados de {TRAIN_IDS_JSON_PATH} "
+        f"(seed={train_ids_data.get('_seed')}, cotas={train_ids_data.get('_cotas')})")
+except FileNotFoundError:
+    log(f"{TRAIN_IDS_JSON_PATH} nao encontrado — nenhum exemplo de treino sera adicionado.",
+        level="warning")
+
+n_train_missing_added = 0
+if ids_todos_train:
+    try:
+        df_premise_train = pd.read_csv(TRAIN_PREMISE_CSV_PATH)
+        ok_rows = df_premise_train[
+            (df_premise_train["status"] == "OK_RELEVANT_FOUND") &
+            (df_premise_train["dataset_idx"].isin(ids_todos_train))
+        ]
+        for _, r in ok_rows.iterrows():
+            global_id   = to_global_id(int(r["dataset_idx"]))
+            premise_idx = int(r["premise_index"])
+            proven_missing_dict[global_id] = [premise_idx]
+            n_train_missing_added += 1
+        log(f"Treino: {n_train_missing_added} ids com premissa removivel "
+            f"(status=OK_RELEVANT_FOUND) carregados de {TRAIN_PREMISE_CSV_PATH} "
+            f"e adicionados a proven_missing_dict (mesmo formato usado na validacao).")
+    except FileNotFoundError:
+        log(f"{TRAIN_PREMISE_CSV_PATH} nao encontrado — task 'missing' nao sera "
+            f"habilitada para nenhum id de treino.", level="warning")
+
+log(f"proven_missing_dict final: {len(proven_missing_dict)} ids no total "
+    f"({len(raw_ids_list)} validacao + {n_train_missing_added} treino).")
 
 
 # ==============================================================================
@@ -276,13 +422,49 @@ except Exception:
 EOS_IDS = list({tokenizer.eos_token_id, EOT_ID})
 print(f"✅ EOS ids: {EOS_IDS}")
 
-print("📦 Carregando dataset FOLIO...")
+print("📦 Carregando dataset FOLIO (validation)...")
 folio_data = load_dataset("yale-nlp/FOLIO", split="validation")
-print(f"✅ {len(folio_data)} exemplos carregados")
+print(f"✅ {len(folio_data)} exemplos de validacao carregados")
 
-print("📊 Calculando estratificacao de complexidade...")
+# ---- Treino (NOVO): carrega o split "train" completo do FOLIO ---------------
+folio_data_train = None
+if ids_todos_train:
+    print("📦 Carregando dataset FOLIO (train)...")
+    folio_data_train = load_dataset("yale-nlp/FOLIO", split="train")
+    print(f"✅ {len(folio_data_train)} exemplos no split de treino "
+          f"({len(ids_todos_train)} selecionados para o pipeline)")
+
+def get_example(global_id: int):
+    """Retorna o exemplo do FOLIO correspondente ao id global (validacao ou treino)."""
+    if is_train_id(global_id):
+        return folio_data_train[get_local_idx(global_id)]
+    return folio_data[global_id]
+
+print("📊 Calculando estratificacao de complexidade (validation)...")
 complexity_map = build_complexity_map(folio_data)
-print(f"✅ {len(complexity_map)} exemplos estratificados")
+print(f"✅ {len(complexity_map)} exemplos de validacao estratificados")
+
+# ---- Treino (NOVO): estratificacao de complexidade calculada separadamente,
+# apenas sobre os 325 exemplos selecionados (mantendo os ids validation
+# inalterados) e remapeada para o id global (TRAIN_ID_OFFSET + dataset_idx) ----
+if ids_todos_train:
+    print("📊 Calculando estratificacao de complexidade (train, subset selecionado)...")
+    train_examples_selected = [folio_data_train[i] for i in ids_todos_train]
+    complexity_map_train_local = build_complexity_map(train_examples_selected)
+    for local_pos, dataset_idx in enumerate(ids_todos_train):
+        complexity_map[to_global_id(dataset_idx)] = complexity_map_train_local[local_pos]
+    print(f"✅ {len(ids_todos_train)} exemplos de treino estratificados "
+          f"(quartis calculados sobre o proprio subconjunto de treino selecionado)")
+
+
+# ==============================================================================
+# UNIVERSO DE IDS A RODAR NO PIPELINE (NOVO)
+# ==============================================================================
+VALIDATION_IDS_GLOBAL = list(range(len(folio_data)))
+ALL_GLOBAL_IDS         = VALIDATION_IDS_GLOBAL + TRAIN_IDS_GLOBAL
+
+log(f"Universo total de ids do pipeline: {len(ALL_GLOBAL_IDS)} "
+    f"({len(VALIDATION_IDS_GLOBAL)} validacao + {len(TRAIN_IDS_GLOBAL)} treino)")
 
 
 # ==============================================================================
@@ -295,8 +477,7 @@ def build_messages(premises_text: str, conclusion_text: str) -> list:
         "the conclusion logically follows from the premises.\n\n"
         f"Premises:\n{premises_text}\n\n"
         f"Conclusion:\n{conclusion_text}\n\n"
-        "Please reason step by step. "
-        r"Then put your final answer within \boxed{True}, \boxed{False}, "
+        r"Put your final answer within \boxed{True}, \boxed{False}, "
         r"or \boxed{Uncertain}."
     )
     return [{"role": "user", "content": user_msg}]
@@ -434,12 +615,19 @@ def generate_batch(task_messages: list, idx=None):
     msgs  = [t[1] for t in task_messages]
     n     = len(msgs)
 
-    # Tokeniza cada mensagem
+    split_name = get_split_name(idx) if idx is not None else "unknown"
+    local_idx  = get_local_idx(idx) if idx is not None else idx
+
+    # Tokeniza cada mensagem (e loga o prompt completo enviado ao modelo — NOVO)
     encoded = []
-    for m in msgs:
+    for i, m in enumerate(msgs):
         text = tokenizer.apply_chat_template(m, tokenize=False, add_generation_prompt=True)
         ids  = tokenizer(text, return_tensors="pt", truncation=False)["input_ids"][0]
         encoded.append(ids)
+
+        print(f"📝 PROMPT id={idx} split={split_name} local_idx={local_idx} "
+              f"task={names[i]} | prompt_tokens={ids.shape[0]} chars={len(text)}", flush=True)
+        log_prompt_to_jsonl(idx, split_name, local_idx, names[i], text, ids.shape[0])
 
     # Filtra prompts que excedem MAX_CONTEXT
     results       = [None] * n
@@ -477,6 +665,9 @@ def generate_batch(task_messages: list, idx=None):
     attn_mask  = torch.stack(attn_mask_list).to(model.device)
     input_lens = [encoded[i].shape[0] for i in valid_indices]
 
+    print(f"🧮 BATCH id={idx} split={split_name} | tasks={[names[i] for i in valid_indices]} "
+          f"| batch_size={len(valid_indices)} | max_len={max_len}", flush=True)
+
     start = time.time()
 
     with torch.no_grad():
@@ -491,6 +682,13 @@ def generate_batch(task_messages: list, idx=None):
         )
 
     duration = time.time() - start
+
+    # Uso de memoria da GPU apos a geracao do chunk (NOVO)
+    if torch.cuda.is_available():
+        alloc_gb    = torch.cuda.memory_allocated() / (1024 ** 3)
+        reserved_gb = torch.cuda.memory_reserved() / (1024 ** 3)
+        print(f"🖥️  GPU mem apos batch id={idx} | allocated={alloc_gb:.2f}GB "
+              f"reserved={reserved_gb:.2f}GB | duration={duration:.1f}s", flush=True)
 
     for batch_pos, orig_idx in enumerate(valid_indices):
         # Usa o input_len real de cada sequencia (nao max_len)
@@ -509,7 +707,7 @@ def generate_batch(task_messages: list, idx=None):
         if truncated:
             print(f"⛔ MAX_NEW_TOKENS atingido -> id={idx} task={names[orig_idx]}")
 
-        print(f"✅ id={idx} task={names[orig_idx]} | tokens={total_gen} | "
+        print(f"✅ id={idx} split={split_name} task={names[orig_idx]} | tokens={total_gen} | "
               f"tps={tps:.2f} | label={label}", flush=True)
 
         results[orig_idx] = {
@@ -641,7 +839,7 @@ def run_full_experiment(specific_ids=None):
     global_start     = time.time()
     total_tokens_all = 0
 
-    target_indices = sorted(specific_ids) if specific_ids else range(len(folio_data))
+    target_indices = sorted(specific_ids) if specific_ids else list(ALL_GLOBAL_IDS)
     configs        = [("fixed", OFFICIAL_GEN_PARAMS)]
 
     for conf_name, conf_params in configs:
@@ -672,8 +870,12 @@ def run_full_experiment(specific_ids=None):
             torch.cuda.empty_cache()
             gc.collect()
 
-            example = folio_data[idx]
-            row     = {"id": idx, "gt": example['label']}
+            example    = get_example(idx)
+            split_name = get_split_name(idx)
+            local_idx  = get_local_idx(idx)
+
+            row = {"id": idx, "gt": example['label'],
+                   "split": split_name, "local_idx": local_idx}
 
             nl_wc, fol_tc, nl_bin, fol_bin = complexity_map.get(
                 idx, (None, None, None, None)
@@ -682,6 +884,12 @@ def run_full_experiment(specific_ids=None):
             row["fol_tc"]  = fol_tc
             row["nl_bin"]  = nl_bin
             row["fol_bin"] = fol_bin
+
+            has_missing = idx in proven_missing_dict
+            print(f"➡️  id={idx} split={split_name} local_idx={local_idx} "
+                  f"gt={example['label']} nl_bin={nl_bin} fol_bin={fol_bin} "
+                  f"missing_task={'yes (premissa='+str(proven_missing_dict.get(idx))+')' if has_missing else 'no'}",
+                  flush=True)
 
             tasks = [
                 ("original",      lambda ex=example, i=idx: prompt_original(ex, i)),
@@ -788,18 +996,25 @@ def analyze_results(jsonl_path: str):
         print("ℹ️  JSONL vazio.")
         return
 
-    n_total_dataset = len(folio_data) if 'folio_data' in dir() else 204
+    ids_universo    = set(ALL_GLOBAL_IDS) if 'ALL_GLOBAL_IDS' in dir() else set(range(len(folio_data)))
+    n_total_dataset = len(ids_universo)
     ids_processados = {r["id"] for r in rows}
-    ids_faltando    = sorted(set(range(n_total_dataset)) - ids_processados)
+    ids_faltando    = sorted(ids_universo - ids_processados)
 
     print("\n" + "=" * 60)
     print("           📊 ANALISE GERAL DOS RESULTADOS")
     print("=" * 60)
-    print(f"  IDs no dataset          : {n_total_dataset}")
-    print(f"  IDs processados         : {len(ids_processados)}")
-    print(f"  IDs faltando            : {len(ids_faltando)}")
+    print(f"  IDs no universo (val+train) : {n_total_dataset}")
+    print(f"  IDs processados             : {len(ids_processados)}")
+    print(f"  IDs faltando                : {len(ids_faltando)}")
     if ids_faltando:
-        print(f"  IDs faltando (lista)    : {ids_faltando}")
+        print(f"  IDs faltando (lista)        : {ids_faltando}")
+
+    # Quebra por split (NOVO)
+    n_val_proc   = sum(1 for i in ids_processados if not is_train_id(i))
+    n_train_proc = sum(1 for i in ids_processados if is_train_id(i))
+    print(f"  Processados (validation)    : {n_val_proc}")
+    print(f"  Processados (train)         : {n_train_proc}")
 
     print("\n  --- Contagem de labels por task ---")
     label_vals = ["True", "False", "Uncertain", "Error", "SKIP"]
@@ -885,7 +1100,7 @@ jsonl_path = f"{OUTPUT_DIR}/results_{file_tag}_fixed.jsonl"
 print("\n🔍 Analisando resultados existentes...")
 result = analyze_results(jsonl_path)
 ids_com_error = result[0] if result else []
-ids_faltando  = result[1] if result else list(range(len(folio_data)))
+ids_faltando  = result[1] if result else list(ALL_GLOBAL_IDS)
 
 print("\n🔍 Verificando qualidade dos labels existentes...")
 ids_incompletos = find_incomplete_ids(jsonl_path)
@@ -909,12 +1124,12 @@ if os.path.exists(jsonl_path):
                 except Exception:
                     pass
 
-todos_os_ids   = list(range(len(folio_data)))
+todos_os_ids   = list(ALL_GLOBAL_IDS)
 ids_para_gerar = sorted(set(todos_os_ids) - processed_ids)
 
-print(f"\n  Total dataset             : {len(folio_data)}")
-print(f"  Ja processados (validos)  : {len(processed_ids)}")
-print(f"  Para gerar/regerar        : {len(ids_para_gerar)}")
+print(f"\n  Total universo (val+train) : {len(ALL_GLOBAL_IDS)}")
+print(f"  Ja processados (validos)   : {len(processed_ids)}")
+print(f"  Para gerar/regerar         : {len(ids_para_gerar)}")
 
 if ids_para_gerar:
     print(f"\n▶️  Parametros de geracao:")
@@ -930,3 +1145,5 @@ else:
 
 print("\n📊 Analise final apos geracao completa:")
 analyze_results(jsonl_path)
+
+log(f"===== FIM DA EXECUCAO ({datetime.now().isoformat()}) =====")
