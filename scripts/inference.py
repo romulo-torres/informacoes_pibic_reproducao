@@ -972,9 +972,12 @@ def run_full_experiment(specific_ids=None):
 # ==============================================================================
 # 12. ANALISE GERAL DO JSONL
 # ==============================================================================
+# ALL_TASKS = [
+#     "original", "complex", "nl", "shuffled", "junto",
+#     "irrelevant", "contradiction", "negation", "missing"
+# ]
 ALL_TASKS = [
-    "original", "complex", "nl", "shuffled", "junto",
-    "irrelevant", "contradiction", "negation", "missing"
+    "original", "nl"
 ]
 
 def analyze_results(jsonl_path: str):
