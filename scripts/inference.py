@@ -329,7 +329,7 @@ proven_missing_dict = {
 # subtrair o offset para saber o indice original no split de treino) e
 # evita qualquer ambiguidade com os ids de validacao.
 TRAIN_ID_OFFSET       = 100000
-TRAIN_IDS_JSON_PATH    = "estratificacao/train_ids_selecionados.json"
+TRAIN_IDS_JSON_PATH   = "estratificacao/train_ids_selecionados.json"
 TRAIN_PREMISE_CSV_PATH = "estratificacao/relevant_premise_train.csv"
 
 def to_global_id(local_train_idx: int) -> int:
@@ -602,8 +602,25 @@ def prompt_nl(ex, idx=None):
 
 
 # ==============================================================================
-# 8. PARAMETROS DE GERACAO
+# CONTROLE DE QUAIS TASKS RODAM (NOVO — ponto unico de configuracao)
 # ==============================================================================
+# Registro de todas as perturbacoes disponiveis. "missing" nao entra aqui
+# porque ja e tratada a parte (so roda quando o id esta em proven_missing_dict).
+PROMPT_BUILDERS = {
+    "original":      prompt_original,
+    "complex":       prompt_complex,
+    "nl":            prompt_nl,
+    "shuffled":      prompt_shuffled,
+    "junto":         prompt_junto,
+    "irrelevant":    prompt_irrelevant,
+    "contradiction": prompt_contradiction,
+    "negation":      prompt_negation,
+}
+
+# Edite APENAS esta lista para escolher quais tasks rodam de fato no pipeline.
+# "missing" nao precisa (nem deve) ser listada aqui: ela e adicionada
+# automaticamente quando o id tem entrada em proven_missing_dict.
+TASKS_TO_RUN = ["original", "nl"]
 MAX_CONTEXT    = 32768
 MAX_NEW_TOKENS = 32768
 CHUNK_SIZE     = 5       # tasks por chamada ao model.generate()
@@ -781,10 +798,7 @@ def find_incomplete_ids(jsonl_path: str) -> list:
 
     incomplete        = []
     unreliable_counts = {}
-    tasks = [
-        "original", "complex", "nl", "shuffled", "junto",
-        "irrelevant", "contradiction", "negation", "missing"
-    ]
+    tasks = TASKS_TO_RUN
 
     with open(jsonl_path, "r", encoding="utf-8") as f:
         for line in f:
@@ -904,14 +918,8 @@ def run_full_experiment(specific_ids=None):
                   flush=True)
 
             tasks = [
-                ("original",      lambda ex=example, i=idx: prompt_original(ex, i)),
-                ("complex",       lambda ex=example, i=idx: prompt_complex(ex, i)),
-                ("nl",            lambda ex=example, i=idx: prompt_nl(ex, i)),
-                ("shuffled",      lambda ex=example, i=idx: prompt_shuffled(ex, i)),
-                ("junto",         lambda ex=example, i=idx: prompt_junto(ex, i)),
-                ("irrelevant",    lambda ex=example, i=idx: prompt_irrelevant(ex, i)),
-                ("contradiction", lambda ex=example, i=idx: prompt_contradiction(ex, i)),
-                ("negation",      lambda ex=example, i=idx: prompt_negation(ex, i)),
+                (name, (lambda ex=example, i=idx, fn=PROMPT_BUILDERS[name]: fn(ex, i)))
+                for name in TASKS_TO_RUN
             ]
 
             if idx in proven_missing_dict:
@@ -984,13 +992,7 @@ def run_full_experiment(specific_ids=None):
 # ==============================================================================
 # 12. ANALISE GERAL DO JSONL
 # ==============================================================================
-# ALL_TASKS = [
-#     "original", "complex", "nl", "shuffled", "junto",
-#     "irrelevant", "contradiction", "negation", "missing"
-# ]
-ALL_TASKS = [
-    "original", "nl"
-]
+ALL_TASKS = TASKS_TO_RUN
 
 def analyze_results(jsonl_path: str):
     if not os.path.exists(jsonl_path):
