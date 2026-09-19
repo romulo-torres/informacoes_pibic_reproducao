@@ -403,13 +403,25 @@ if hasattr(config, "rope_scaling") and config.rope_scaling is not None:
     if "attn_factor" in config.rope_scaling:
         del config.rope_scaling["attn_factor"]
 
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    config=config,
-    device_map="auto",
-    torch_dtype=torch.float16,
-    attn_implementation="flash_attention_2"
-)
+def _load_model(attn_impl: str):
+    return AutoModelForCausalLM.from_pretrained(
+        model_name,
+        config=config,
+        device_map="auto",
+        torch_dtype=torch.float16,
+        attn_implementation=attn_impl
+    )
+
+# Tenta FlashAttention2 (mais rapido); se o pacote nao estiver instalado no
+# ambiente, cai para "sdpa" automaticamente em vez de travar a execucao.
+try:
+    model = _load_model("flash_attention_2")
+    print("✅ Modelo carregado com attn_implementation=flash_attention_2")
+except ImportError as e:
+    log(f"flash_attention_2 indisponivel ({e}); recarregando com attn_implementation=sdpa",
+        level="warning")
+    model = _load_model("sdpa")
+    print("✅ Modelo carregado com attn_implementation=sdpa (fallback)")
 model.eval()
 
 try:
