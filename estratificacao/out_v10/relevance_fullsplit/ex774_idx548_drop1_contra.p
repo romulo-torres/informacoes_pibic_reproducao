@@ -1,0 +1,6 @@
+% premises + conclusion (UNSAT => contradiction)
+fof(p1, axiom, ! [X] : (! [Y] : (((paymentcard(X) & mir(X)) => (russianbank(Y) & issuedby(X, Y)))))).
+fof(p2, axiom, ? [X] : (((paymentcard(X) & international(X)) => usedwith(X, applepay)))).
+fof(p3, axiom, ! [X] : (! [Y] : (((socialpayment(X) & transferredto(X, Y)) => (paymentcard(Y) & mir(Y)))))).
+fof(p4, axiom, (paymentcard(bankofamerica) & usedwith(bankofamerica, applepay))).
+fof(extra1, axiom, (! [X] : ((((paymentcard(bankofamerica) & international(bankofamerica)) & socialpayment(X)) & transferredto(X, bankofamerica))))).

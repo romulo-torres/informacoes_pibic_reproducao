@@ -1,0 +1,7 @@
+% premises + ~conclusion (UNSAT => entails)
+fof(p1, axiom, ! [X] : ((professionalbasketballplayer(X) => ~(professionalsoccerplayer(X))))).
+fof(p2, axiom, ! [X] : ((nbaplayer(X) => professionalbasketballplayer(X)))).
+fof(p3, axiom, ! [X] : ((professionalsoccerdefender(X) => professionalsoccerplayer(X)))).
+fof(p4, axiom, ! [X] : ((professionalcenterback(X) => professionalsoccerdefender(X)))).
+fof(p5, axiom, ~((nbaplayer(rogerfederer) <~> professionalsoccerdefender(rogerfederer)))).
+fof(extra1, axiom, ~(professionalsoccerplayer(rogerfederer))).

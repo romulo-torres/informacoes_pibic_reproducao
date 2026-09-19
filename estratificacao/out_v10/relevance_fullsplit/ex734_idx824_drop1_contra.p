@@ -1,0 +1,3 @@
+% premises + conclusion (UNSAT => contradiction)
+fof(p1, axiom, ? [X] : (? [Y] : (((((furniture(X) & furniture(Y)) & table(X)) & table(Y)) & ~((X = Y)))))).
+fof(extra1, axiom, (? [X] : (? [Y] : (((((furniture(X) & furniture(Y)) & round(X)) & round(Y)) & ~((X = Y))))))).

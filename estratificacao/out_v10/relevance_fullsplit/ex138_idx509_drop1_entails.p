@@ -1,0 +1,6 @@
+% premises + ~conclusion (UNSAT => entails)
+fof(p1, axiom, (about(thesalmonofdoubt, lifeexperience) & about(thesalmonofdoubt, technology))).
+fof(p2, axiom, ! [X] : ((author(X) => writer(X)))).
+fof(p3, axiom, ! [X] : ((writer(X) => create(X, innovativeidea)))).
+fof(p4, axiom, ? [X] : (? [Y] : ((((contain(X, innovativeidea) & about(X, technology)) & ~((X = Y))) & (contain(Y, innovativeidea) & about(Y, technology)))))).
+fof(extra1, axiom, ~(writer(douglasadams))).

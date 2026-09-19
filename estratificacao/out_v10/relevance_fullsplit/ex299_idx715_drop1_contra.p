@@ -1,0 +1,4 @@
+% premises + conclusion (UNSAT => contradiction)
+fof(p1, axiom, northwestof(baku, shafaq_asiman)).
+fof(p2, axiom, ! [X] : (! [Y] : ((northwestof(X, Y) => southeastof(Y, X))))).
+fof(extra1, axiom, (? [X] : ((largecomplex(X) & southeastof(X, baku))))).

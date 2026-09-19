@@ -1,0 +1,5 @@
+% premises + ~conclusion (UNSAT => entails)
+fof(p1, axiom, ! [X] : ((elephantopus(X) => (genus(X, perennialplants) & belongto(X, daisyfamily))))).
+fof(p2, axiom, ? [X] : (? [Y] : (((((elephantopus(X) & nativeto(X, southeasternunitedstates)) & ~((X = Y))) & elephantopus(Y)) & nativeto(Y, southeasternunitedstates))))).
+fof(p3, axiom, ! [X] : ((elephantopusscaber(X) => traditionalmedicine(X)))).
+fof(extra1, axiom, ~(! [X] : ((elephantopus(X) => ~(nativeto(X, southeasternunitedstates)))))).

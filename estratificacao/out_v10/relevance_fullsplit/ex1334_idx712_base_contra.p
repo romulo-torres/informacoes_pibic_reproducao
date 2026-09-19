@@ -1,0 +1,8 @@
+% premises + conclusion (UNSAT => contradiction)
+fof(p1, axiom, ! [X] : (((classroomin(X, williamlharknesshall) & usedfor(X, lecture)) => bookedduring(X, day)))).
+fof(p2, axiom, ! [X] : ((classroomin(X, williamlharknesshall) & ~(privatestudyspot(X))))).
+fof(p3, axiom, ! [X] : ((classroomin(X, williamlharknesshall) & (usedfor(X, lecture) | usedfor(X, officehours))))).
+fof(p4, axiom, ! [X] : (((classroomin(X, williamlharknesshall) & bookedin(X, evening)) => ~(freelyusableatnight(X))))).
+fof(p5, axiom, ! [X] : (((classroomin(X, williamlharknesshall) & usedfor(X, officehours)) => bookedin(X, evening)))).
+fof(p6, axiom, (classroomin(num116, williamlharknesshall) & ~((usedfor(num116, lecture) <~> usedfor(num116, officehours))))).
+fof(extra1, axiom, (~(((bookedduring(room116, day) <~> freelyusableatnight(room116)) => (usedfor(room116, officehour) <~> privatestudyspot(room116)))))).
