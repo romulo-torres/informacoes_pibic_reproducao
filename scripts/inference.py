@@ -620,14 +620,14 @@ PROMPT_BUILDERS = {
 # Edite APENAS esta lista para escolher quais tasks rodam de fato no pipeline.
 # "missing" nao precisa (nem deve) ser listada aqui: ela e adicionada
 # automaticamente quando o id tem entrada em proven_missing_dict.
-TASKS_TO_RUN = ["original", "nl"]
+TASKS_TO_RUN = ["original"]
 MAX_CONTEXT    = 32768
 MAX_NEW_TOKENS = 32768
 CHUNK_SIZE     = 5       # tasks por chamada ao model.generate()
 
 OFFICIAL_GEN_PARAMS = {
     "do_sample":   True,
-    "temperature": 0.6,
+    "temperature": 0,
     "top_p":       0.95,
 }
 
