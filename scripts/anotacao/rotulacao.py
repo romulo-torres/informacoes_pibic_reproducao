@@ -49,7 +49,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from insere_tags import aplicar_ancoras, verificar_integridade
+from scripts.anotacao.insere_tags import aplicar_ancoras, verificar_integridade
 
 load_dotenv()
 

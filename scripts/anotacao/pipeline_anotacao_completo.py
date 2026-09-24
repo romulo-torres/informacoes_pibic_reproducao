@@ -31,12 +31,12 @@ import traceback
 
 import pandas as pd
 
-import rotulacao as pa  # reaproveita toda a logica ja existente (arquivo renomeado de pipeline_anotacao.py)
+import scripts.anotacao.rotulacao as pa  # reaproveita toda a logica ja existente (arquivo renomeado de pipeline_anotacao.py)
 
 # ==============================================================================
 # CONFIGURACAO ESPECIFICA DESTA VARIANTE
 # ==============================================================================
-PATH_INPUT_LONGO = "resultados_completos.csv"
+PATH_INPUT_LONGO = "./data/resultados_completos.csv"
 MODEL_LABEL = "LRM"  # so DeepSeek-R1-Distill tem raciocinio <think> rico
 
 

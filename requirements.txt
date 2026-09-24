@@ -4,11 +4,11 @@
 torch>=2.0.0
 transformers>=4.46.0
 datasets>=2.20.0
-accelerate>=0.30.0       # necessário para device_map="auto"
-flash-attn>=2.6.0        # requer CUDA; instalação: pip install flash-attn --no-build-isolation
+accelerate>=0.30.0
+flash-attn>=2.6.0        # requer CUDA; instale com: pip install flash-attn --no-build-isolation
 
 # ==============================================================================
-# Análise e tabela (analysis/gera_tabela_acuracia.py)
+# Análise e tabela LaTeX (gera_tabela_acuracia.py)
 # ==============================================================================
 pandas>=2.0.0
 scipy>=1.11.0
