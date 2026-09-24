@@ -209,13 +209,26 @@ IS_INSTRUCT       = "Instruct" in model_name
 IS_R1_MODEL       = "DeepSeek-R1" in model_name
 USE_CHAT_TEMPLATE = IS_INSTRUCT or IS_R1_MODEL
 
-file_tag   = model_name.split("/")[-1]
+# ==============================================================================
+# TEMPERATURA
+# ==============================================================================
+# Unico lugar a editar para trocar de configuracao. Com TEMPERATURE=0, a
+# geracao vira gulosa (greedy / do_sample=False) automaticamente mais abaixo
+# (secao 8) — o HuggingFace nao aceita temperature=0 com do_sample=True (e
+# o erro "has to be a strictly positive float"). Cada valor de TEMPERATURE
+# gera um conjunto de arquivos de saida PROPRIO (resultados, log, prompts),
+# pois o file_tag abaixo incorpora a temperatura — rodar com T=0 nunca mexe
+# nos arquivos do T=0.6 e vice-versa, ambos ficam guardados separadamente.
+TEMPERATURE = 0
+TEMP_TAG = f"t{str(TEMPERATURE).replace('.', '')}"  # 0.6 -> "t06" | 0 -> "t0"
+
+file_tag   = model_name.split("/")[-1] + f"_{TEMP_TAG}"
 OUTPUT_DIR = "results"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
 # ==============================================================================
-# 1B. LOGGING (NOVO)
+# 1B. LOGGING
 # ==============================================================================
 # - Tudo que ja era impresso com print() continua sendo impresso normalmente
 #   E, alem disso, passa a ser gravado em results/run_{file_tag}.log (com timestamp),
@@ -223,6 +236,8 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # - Um segundo arquivo, results/prompts_{file_tag}.jsonl, grava o PROMPT COMPLETO
 #   (texto ja formatado pelo chat template) enviado ao modelo em cada chamada,
 #   um registro por task/id, para permitir auditoria posterior do que foi enviado.
+# - Como file_tag agora inclui a temperatura, esses dois arquivos ja saem
+#   automaticamente separados por configuracao (T=0 vs T=0.6 etc.).
 RUN_LOG_PATH     = f"{OUTPUT_DIR}/run_{file_tag}.log"
 PROMPTS_LOG_PATH = f"{OUTPUT_DIR}/prompts_{file_tag}.jsonl"
 
@@ -285,11 +300,13 @@ log(f"Log de prompts (auditoria)  : {PROMPTS_LOG_PATH}")
 print(f"Modelo selecionado : {model_name}")
 print(f"  IS_INSTRUCT      : {IS_INSTRUCT}")
 print(f"  IS_R1_MODEL      : {IS_R1_MODEL}")
+print(f"  TEMPERATURE      : {TEMPERATURE}  (TEMP_TAG={TEMP_TAG})")
+print(f"  file_tag         : {file_tag}")
 print(f"  OUTPUT_DIR       : {OUTPUT_DIR}")
 
 
 # ==============================================================================
-# 2. LISTAS PARA MISSING PREMISE (VALIDACAO) + TREINO (NOVO)
+# 2. LISTAS PARA MISSING PREMISE (VALIDACAO) + TREINO
 # ==============================================================================
 
 # ---- Validacao (conjunto original, ja existente) ----------------------------
@@ -314,7 +331,7 @@ proven_missing_dict = {
     for i in range(len(raw_ids_list))
 }
 
-# ---- Treino (NOVO) ------------------------------------------------------------
+# ---- Treino ------------------------------------------------------------------
 # IDs do conjunto de treino do FOLIO selecionados para ampliar a amostra
 # (train_ids_selecionados.json) + verificacao de premissa removivel feita
 # com o Vampire (relevant_premise_train.csv).
@@ -438,7 +455,7 @@ print("📦 Carregando dataset FOLIO (validation)...")
 folio_data = load_dataset("yale-nlp/FOLIO", split="validation")
 print(f"✅ {len(folio_data)} exemplos de validacao carregados")
 
-# ---- Treino (NOVO): carrega o split "train" completo do FOLIO ---------------
+# ---- Treino: carrega o split "train" completo do FOLIO ----------------------
 folio_data_train = None
 if ids_todos_train:
     print("📦 Carregando dataset FOLIO (train)...")
@@ -456,9 +473,9 @@ print("📊 Calculando estratificacao de complexidade (validation)...")
 complexity_map = build_complexity_map(folio_data)
 print(f"✅ {len(complexity_map)} exemplos de validacao estratificados")
 
-# ---- Treino (NOVO): estratificacao de complexidade calculada separadamente,
-# apenas sobre os 325 exemplos selecionados (mantendo os ids validation
-# inalterados) e remapeada para o id global (TRAIN_ID_OFFSET + dataset_idx) ----
+# ---- Treino: estratificacao de complexidade calculada separadamente, apenas
+# sobre os exemplos selecionados (mantendo os ids validation inalterados) e
+# remapeada para o id global (TRAIN_ID_OFFSET + dataset_idx) ------------------
 if ids_todos_train:
     print("📊 Calculando estratificacao de complexidade (train, subset selecionado)...")
     train_examples_selected = [folio_data_train[i] for i in ids_todos_train]
@@ -470,7 +487,7 @@ if ids_todos_train:
 
 
 # ==============================================================================
-# UNIVERSO DE IDS A RODAR NO PIPELINE (NOVO)
+# UNIVERSO DE IDS A RODAR NO PIPELINE
 # ==============================================================================
 VALIDATION_IDS_GLOBAL = list(range(len(folio_data)))
 ALL_GLOBAL_IDS         = VALIDATION_IDS_GLOBAL + TRAIN_IDS_GLOBAL
@@ -602,7 +619,7 @@ def prompt_nl(ex, idx=None):
 
 
 # ==============================================================================
-# CONTROLE DE QUAIS TASKS RODAM (NOVO — ponto unico de configuracao)
+# CONTROLE DE QUAIS TASKS RODAM (ponto unico de configuracao)
 # ==============================================================================
 # Registro de todas as perturbacoes disponiveis. "missing" nao entra aqui
 # porque ja e tratada a parte (so roda quando o id esta em proven_missing_dict).
@@ -621,15 +638,31 @@ PROMPT_BUILDERS = {
 # "missing" nao precisa (nem deve) ser listada aqui: ela e adicionada
 # automaticamente quando o id tem entrada em proven_missing_dict.
 TASKS_TO_RUN = ["original"]
+
 MAX_CONTEXT    = 32768
 MAX_NEW_TOKENS = 32768
 CHUNK_SIZE     = 5       # tasks por chamada ao model.generate()
 
-OFFICIAL_GEN_PARAMS = {
-    "do_sample":   True,
-    "temperature": 0,
-    "top_p":       0.95,
-}
+# ==============================================================================
+# 8. PARAMETROS DE GERACAO (greedy automatico quando TEMPERATURE=0)
+# ==============================================================================
+# O HuggingFace nao aceita do_sample=True com temperature=0 (erro "has to be
+# a strictly positive float"). Quando TEMPERATURE=0, a geracao gulosa
+# (greedy) e a forma correta de "temperatura zero" -- ela sempre escolhe o
+# token mais provavel, sem amostragem, entao nem temperature nem top_p fazem
+# sentido nesse modo e sao omitidos.
+DO_SAMPLE = TEMPERATURE > 0
+
+if DO_SAMPLE:
+    OFFICIAL_GEN_PARAMS = {
+        "do_sample":   True,
+        "temperature": TEMPERATURE,
+        "top_p":       0.95,
+    }
+else:
+    OFFICIAL_GEN_PARAMS = {
+        "do_sample": False,
+    }
 
 
 # ==============================================================================
@@ -647,7 +680,7 @@ def generate_batch(task_messages: list, idx=None):
     split_name = get_split_name(idx) if idx is not None else "unknown"
     local_idx  = get_local_idx(idx) if idx is not None else idx
 
-    # Tokeniza cada mensagem (e loga o prompt completo enviado ao modelo — NOVO)
+    # Tokeniza cada mensagem (e loga o prompt completo enviado ao modelo)
     encoded = []
     for i, m in enumerate(msgs):
         text = tokenizer.apply_chat_template(m, tokenize=False, add_generation_prompt=True)
@@ -712,7 +745,7 @@ def generate_batch(task_messages: list, idx=None):
 
     duration = time.time() - start
 
-    # Uso de memoria da GPU apos a geracao do chunk (NOVO)
+    # Uso de memoria da GPU apos a geracao do chunk
     if torch.cuda.is_available():
         alloc_gb    = torch.cuda.memory_allocated() / (1024 ** 3)
         reserved_gb = torch.cuda.memory_reserved() / (1024 ** 3)
@@ -1027,7 +1060,7 @@ def analyze_results(jsonl_path: str):
     if ids_faltando:
         print(f"  IDs faltando (lista)        : {ids_faltando}")
 
-    # Quebra por split (NOVO)
+    # Quebra por split
     n_val_proc   = sum(1 for i in ids_processados if not is_train_id(i))
     n_train_proc = sum(1 for i in ids_processados if is_train_id(i))
     print(f"  Processados (validation)    : {n_val_proc}")
