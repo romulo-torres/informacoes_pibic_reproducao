@@ -219,7 +219,7 @@ USE_CHAT_TEMPLATE = IS_INSTRUCT or IS_R1_MODEL
 # gera um conjunto de arquivos de saida PROPRIO (resultados, log, prompts),
 # pois o file_tag abaixo incorpora a temperatura — rodar com T=0 nunca mexe
 # nos arquivos do T=0.6 e vice-versa, ambos ficam guardados separadamente.
-TEMPERATURE = 0
+TEMPERATURE = 0.6
 TEMP_TAG = f"t{str(TEMPERATURE).replace('.', '')}"  # 0.6 -> "t06" | 0 -> "t0"
 
 file_tag   = model_name.split("/")[-1] + f"_{TEMP_TAG}"
@@ -637,7 +637,10 @@ PROMPT_BUILDERS = {
 # Edite APENAS esta lista para escolher quais tasks rodam de fato no pipeline.
 # "missing" nao precisa (nem deve) ser listada aqui: ela e adicionada
 # automaticamente quando o id tem entrada em proven_missing_dict.
-TASKS_TO_RUN = ["original"]
+TASKS_TO_RUN = [
+    "original", "complex", "nl", "shuffled",
+    "junto", "irrelevant", "contradiction", "negation",
+]
 
 MAX_CONTEXT    = 32768
 MAX_NEW_TOKENS = 32768
