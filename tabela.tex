@@ -1,0 +1,29 @@
+\begin{table}[ht]
+\centering
+\caption{Acurácia e ganho relativo do modelo LRM por perturbação ($T=0{,}6$). O símbolo (*) em \textbf{Ganho} indica variação estatisticamente significativa entre a condição Original e a perturbação (teste de McNemar pareado por exemplo, $p<0{,}05$; exato quando $b+c<25$).}
+\label{tab:lrm_perturbacoes}
+\sisetup{
+  output-decimal-marker={,},
+  table-format=-2.1,
+  table-space-text-post={*}
+}
+\begin{tabular}{l
+  S[table-format=2.1]
+  S[table-format=-3.1, table-space-text-post={*}]
+  S[table-format=3.0]
+}
+\toprule
+\textbf{Perturbação} & {\textbf{Acurácia (\%)}} & {\textbf{Ganho (\%)}} & {\textbf{$n$}} \\
+\midrule
+Original & 57.0 & {--} & 521 \\
+Linguagem Natural & 63.9 & +12.1* & 521 \\
+Premissas Embaralhadas & 59.3 & +4.0 & 521 \\
+Premissas Juntas (AND) & 58.2 & +2.0 & 521 \\
+Ruído Irrelevante & 58.0 & +1.7 & 521 \\
+Premissa Faltante & 55.8 & -2.0* & 197 \\
+Duplicação de Premissas & 56.8 & -0.3 & 521 \\
+Contradição Injetada & 46.8 & -17.8* & 521 \\
+Negação Conclusão & 17.7 & -69.0* & 521 \\
+\bottomrule
+\end{tabular}
+\end{table}
