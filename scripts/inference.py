@@ -202,7 +202,7 @@ MODELS = [
     "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
 ]
 
-SELECTED_INDEX = 1
+SELECTED_INDEX = 0
 model_name = MODELS[SELECTED_INDEX]
 
 IS_INSTRUCT       = "Instruct" in model_name
