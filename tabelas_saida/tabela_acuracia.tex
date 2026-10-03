@@ -1,0 +1,28 @@
+\begin{table}[ht]
+\centering
+\caption{Acurácia e ganho relativo por perturbação ($T=0{,}6$). (*) em \textbf{Ganho}: variação significativa entre Original e a perturbação no mesmo modelo (McNemar, $p<0{,}05$).}
+\label{tab:acuracia_completa}
+\sisetup{output-decimal-marker={,}, table-format=-2.1, table-space-text-post={*}}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l
+  S[table-format=2.1, table-space-text-post={*}]
+  S[table-format=-2.1, table-space-text-post={*}]
+}
+\toprule
+\textbf{Perturbação} & \multicolumn{1}{c}{\textbf{Acurácia (\%)}} & \multicolumn{1}{c}{\textbf{Ganho (\%)}} \\
+\cmidrule(lr){2-2} \cmidrule(lr){3-3}
+& {LRM} & {LRM} \\
+\midrule
+Original & 57.0 & \text{--} \\
+Linguagem Natural & 63.9 & +12.1* \\
+Embaralhado & 59.3 & +4.0 \\
+Junto & 58.2 & +2.0 \\
+Irrelevante & 58.0 & +1.7 \\
+Informação Ausente & 55.8 & -2.0* \\
+Complexo & 56.8 & -0.3 \\
+Contradição & 46.8 & -17.8* \\
+Negação & 17.7 & -69.0* \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
