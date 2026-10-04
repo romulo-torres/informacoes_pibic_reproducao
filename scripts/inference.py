@@ -638,7 +638,7 @@ PROMPT_BUILDERS = {
 # "missing" nao precisa (nem deve) ser listada aqui: ela e adicionada
 # automaticamente quando o id tem entrada em proven_missing_dict.
 TASKS_TO_RUN = [
-    "original"
+    "original", "complex", "nl", "shuffled", "junto", "irrelevant", "contradiction", "negation"
 ]
 
 MAX_CONTEXT    = 32768
